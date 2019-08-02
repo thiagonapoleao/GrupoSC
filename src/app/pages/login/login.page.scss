@@ -1,0 +1,30 @@
+.pincipal {
+background: #122045;
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+height: 100%;
+background-image: url('/assets/img/GrupoSC.png');
+background-repeat: no-repeat;
+background-size: contain;
+
+    ion-slides {
+        height: 100%;    
+    }
+
+    span {
+        color: #ffffff;       
+    }
+    
+    ion-item {            
+        --border-radius: 10px;
+    }
+
+    .segment {
+        color: #ffffff;
+    }
+
+
+}
+
