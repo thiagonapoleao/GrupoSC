@@ -1,6 +1,8 @@
+
 .pincipal {
     
     position: absolute;
+   
     left: 0;
     right: 0;
     bottom: 0;
@@ -8,6 +10,7 @@
     background-image: url('/assets/img/GrupoSC-d.png');
     background-repeat: no-repeat;
     background-size: contain;    
+   
  
     
         ion-slides {
@@ -15,15 +18,36 @@
         }
     
         span {
-            color: #ffffff;       
+            color: #ffffff;   
+            
         }
         
         ion-item {  
-            --border-radius: 10px;       
-             
+            --border-radius: 10px;                 
+
+        
         }
 
-      
+        ion-label {
+            font-size: 12px;
+            white-space: pre-line;   
+        }
+
+        ion-button {
+            width:90;
+            height:100;
+            max-height: 40px;
+            min-height: 40px;
+            max-width: 50px;
+            min-width: 50px;
+            font-size: 12px;
+            white-space: pre-line;            
+            --border-radius: 6px;     
+        }
+
+      .menu {
+        font-size: 9px;
+      }
     
     }
     

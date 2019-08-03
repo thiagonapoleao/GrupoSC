@@ -1,73 +1,90 @@
 <ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
   (ionScrollEnd)="logScrollEnd()">
 
+  <ion-header >
+      <ion-toolbar color="secondary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+              <span>Indicadores GrupoSC</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-  <div class="pincipal">
-
+  <div class="pincipal">   
+     
     <ion-slides>
-      <ion-slide>
-        <span>Indicadores GrupoSC</span>
+      <ion-slide>        
       </ion-slide>
     </ion-slides>
-  
 
     <ion-card>
-        <ion-item>
-            <ion-label>Indicador</ion-label>
-            <ion-button fill="outline" slot="end">Meta</ion-button>
-            <ion-button fill="outline" slot="end">Real</ion-button>
-          </ion-item>
-          <P>
-
-         
-      <ion-item>
-         
-              <ion-col size="6">
-                UPM Total
-              </ion-col>
-              <ion-col size="4">
-                Meta
-              </ion-col>
-              <ion-col size="4">
-                Realizado
-              </ion-col>              
-           
+      <ion-item class="top">
+        <ion-label>Indicador</ion-label>
+        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
+        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
+        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
       </ion-item>
       <P>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-      </ion-item>
-     </P>
-     <P>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-        <ion-button fill="outline" slot="end">xxxxx</ion-button>
-      </ion-item>
-</P>
+
+
+        <P>
+          <ion-item>
+            <ion-label [routerLink]="['/upm']">UPM Total</ion-label>
+            <ion-button>900</ion-button>
+            <ion-button>900</ion-button>
+            <ion-button>1300</ion-button>
+            <ion-button>1300</ion-button>
+          </ion-item>
+        </P>
+        <P>
+          <ion-item>
+            <ion-label>UPM Linha</ion-label>
+            <ion-button>900</ion-button>
+            <ion-button>900</ion-button>
+            <ion-button>1300</ion-button>
+            <ion-button>1300</ion-button>
+          </ion-item>
+        </P>
+        <P>
+          <ion-item>
+            <ion-label>UPM Psico</ion-label>
+            <ion-button>900</ion-button>
+            <ion-button>900</ion-button>
+            <ion-button>1300</ion-button>
+            <ion-button>1300</ion-button>
+          </ion-item>
+        </P>
+        <P>
+          <ion-item>
+            <ion-label>Cancelamento Total</ion-label>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.25%</ion-button>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.05%</ion-button>
+          </ion-item>
+        </P>
+        <P>
+          <ion-item>
+            <ion-label>Cancelamento Operacional</ion-label>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.25%</ion-button>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.05%</ion-button>
+          </ion-item>
+        </P>
+        <P>
+          <ion-item>
+            <ion-label>Cancelamento Comercial</ion-label>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.25%</ion-button>
+            <ion-button>0.05%</ion-button>
+            <ion-button>0.05%</ion-button>
+          </ion-item>
+        </P>
+
 
     </ion-card>
 

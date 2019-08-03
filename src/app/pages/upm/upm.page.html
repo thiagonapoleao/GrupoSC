@@ -1,81 +1,47 @@
 <ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
   (ionScrollEnd)="logScrollEnd()">
 
+  <ion-header >
+      <ion-toolbar color="secondary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+              <span>Indicadores GrupoSC</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
 
   <div class="pincipal">
-
     <ion-slides>
-      <ion-slide>
-        <span>Indicadores GrupoSC</span>
+      <ion-slide>      
       </ion-slide>
     </ion-slides>
 
-    <p>
-        <ion-item>
-          <ion-label>Indicador</ion-label>
-          <span>------------------</span>
-          <ion-label>Meta</ion-label>
-          
-          <ion-label>Realizado</ion-label>
-        </ion-item>
-      </p>
-    <p>
-      <ion-item>
-        <ion-label>UPM Total</ion-label>
-        <ion-badge>900</ion-badge> 
-        <span>-----------</span>
-        <ion-badge>1.300</ion-badge>
-        <span>----</span>
+    <ion-card>
+      <ion-item class="top">
+        <ion-label>Indicador</ion-label>
+        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
+        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
+        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
       </ion-item>
-    </p>
-    <p>
-      <ion-item>
-        <ion-label>UPM Linha</ion-label>
-        <ion-badge>900</ion-badge> 
-        <span>-----------</span>
-        <ion-badge>1.300</ion-badge>
-        <span>----</span>
-      </ion-item>
-    </p>
-    <p>
-      <ion-item>
-        <ion-label>UPM Psico</ion-label>
-        <ion-badge>900</ion-badge> 
-        <span>-----------</span>
-        <ion-badge>1.300</ion-badge>
-        <span>----</span>
-      </ion-item>
-    </p>
-    <p>
-      <ion-item>
-        <ion-label>Cancelamento Op</ion-label>
-        <ion-badge>0,06%</ion-badge> 
-        <span>----------</span>
-        <ion-badge>0,06%</ion-badge>
-        <span>---</span>
-      </ion-item>
-    </p>
-    <p>
-      <ion-item>
-        <ion-label>Cancelamento Com </ion-label>
-        <ion-badge>0,65%</ion-badge> 
-        <span>----------</span>
-        <ion-badge>0,65%</ion-badge>
-        <span>---</span>
-      </ion-item>
-    </p>
-    <p>
-      <ion-item>
-        <ion-label>Cancelamento Total </ion-label>
-        <ion-badge>1,23%</ion-badge> 
-        <span>----------</span>
-        <ion-badge>1,23%</ion-badge>
-        <span>---</span>
-      </ion-item>
-    </p>
+      <P>
+
+
+        <P>
+          <ion-item>
+            <ion-label>UPM Total</ion-label>
+            <ion-button>900</ion-button>
+            <ion-button>900</ion-button>
+            <ion-button>1300</ion-button>
+            <ion-button>1300</ion-button>
+          </ion-item>
+        </P>
 
 
 
+    </ion-card>
 
   </div>
 </ion-content>
