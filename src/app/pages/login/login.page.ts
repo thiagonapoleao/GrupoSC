@@ -10,20 +10,20 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  //@ViewChild(IonSlides) slides: IonSlides;
+  @ViewChild(IonSlides,{static:false}) slides: IonSlides;
 
 
   constructor( public keyboard: Keyboard) { }
 
   ngOnInit() { }
 
- // segmentChanged(event: any) {
-  //  if (event.detail.value === 'login') {
-   //   this.slides.slidePrev();
-  //  } else {
-    //  this.slides.slideNext();
-  //  }
- // }
+ segmentChanged(event: any) {
+   if (event.detail.value === 'login') {
+    this.slides.slidePrev();
+   } else {
+   this.slides.slideNext();
+   }
+  }
 
   }
 
