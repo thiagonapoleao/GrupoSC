@@ -9,6 +9,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { DatabaseService } from './provider/database.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,14 +19,17 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Keyboard
+    Keyboard,
+    SQLite,
+    DatabaseService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

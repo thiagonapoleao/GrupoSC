@@ -12,36 +12,19 @@
         </ion-toolbar>
       </ion-header>
 
-  <div class="pincipal">
-    <ion-slides>
-      <ion-slide>      
-      </ion-slide>
-    </ion-slides>
+<ion-list>
+  <ion-item *ngFor "let upms of upm">
+    <ion-avatar item-start>
 
-    <ion-card>
-      <ion-item class="top">
-        <ion-label>Indicador</ion-label>
-        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
-        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
-        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
-        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
-      </ion-item>
-      <P>
+    </ion-avatar>
+    <h2>{{upm.data}}</h2>
+    <p>{{upm.volumes}}</p>
+    <p>{{upm.erros}}</p>
+    <p>{{upm.upm}}</p>
+  </ion-item>
+</ion-list>
 
+    
 
-        <P>
-          <ion-item>
-            <ion-label>UPM Total</ion-label>
-            <ion-button>900</ion-button>
-            <ion-button>900</ion-button>
-            <ion-button>1300</ion-button>
-            <ion-button>1300</ion-button>
-          </ion-item>
-        </P>
-
-
-
-    </ion-card>
-
-  </div>
+ 
 </ion-content>

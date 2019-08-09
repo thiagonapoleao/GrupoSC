@@ -1,0 +1,47 @@
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
+
+  <ion-header >
+      <ion-toolbar color="secondary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+              <span>Indicadores GrupoSC</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+  <div class="pincipal">
+    <ion-slides>
+      <ion-slide>      
+      </ion-slide>
+    </ion-slides>
+
+    <ion-card>
+      <ion-item class="top">
+        <ion-label>Indicador</ion-label>
+        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
+        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
+        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
+      </ion-item>
+      <P>
+
+
+        <P>
+          <ion-item>
+            <ion-label>UPM Total</ion-label>
+            <ion-button>900</ion-button>
+            <ion-button>900</ion-button>
+            <ion-button>1300</ion-button>
+            <ion-button>1300</ion-button>
+          </ion-item>
+        </P>
+
+
+
+    </ion-card>
+
+  </div>
+</ion-content>
