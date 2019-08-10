@@ -1,0 +1,16 @@
+fb67880f9485210b2f91a05e1d00f65efff076a1
+
+npm install
+
+PHP
+npm i @angular/http
+
+
+
+Sqlite
+ionic cordova plugin add cordova-sqlite-storage
+npm install @ionic-native/sqlite
+
+	
+npm install -g typescript@rc
+npm install typescript --save-dev

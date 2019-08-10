@@ -12,14 +12,28 @@
         </ion-toolbar>
       </ion-header>
 
-      <ion-item *ngFor= "let anl of analise">
-        <ion-avatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <ion-label>Item Avatar</ion-label>
-        <h2>{{anl.codigo}}</h2>
-        <p>{{anl.nome}}</p>
-      </ion-item>   
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Indicadores GrupoSC</ion-card-subtitle>
+          <ion-card-title>{{codigo}}</ion-card-title>
+        </ion-card-header>
+        <ion-item>
+          <ion-icon name="nome" slot="start"></ion-icon>
+          <ion-card-content>{{nome}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="total" slot="start"></ion-icon>
+          <ion-card-content>{{total'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="media" slot="start"></ion-icon>
+          <ion-card-content>{{media}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="porcen" slot="start"></ion-icon>
+          <ion-card-content>{{porcen}}</ion-card-content>
+        </ion-item>
+      </ion-card>
 
  
 </ion-content>

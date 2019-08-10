@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DadosSCService } from '../../services/dados-sc.service';
+import { DadosSCService } from '../services/dados-sc.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
