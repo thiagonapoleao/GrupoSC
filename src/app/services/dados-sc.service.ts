@@ -17,7 +17,7 @@ export class DadosSCService {
   }
 
   getBusca() {
-    return this.http.get(this.url + 'dados.php').pipe(map(res =>res.json()));
+    return this.http.get(this.url+'dados.php').pipe(map(res => res.json()));
   }
 
 }

@@ -21,6 +21,11 @@ export class AppComponent {
       title: 'UPM Total',
       url: '/upm',
       icon: 'upm'
+    },
+    {
+      title: 'Analise Prod Conf',
+      url: '/analiseprodconf',
+      icon: 'analiseprodconf'
     }
   ];
 

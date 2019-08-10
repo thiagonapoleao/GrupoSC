@@ -1,9 +1,25 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>analiseprodconf</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
+  (ionScrollEnd)="logScrollEnd()">
 
-<ion-content>
+  <ion-header >
+      <ion-toolbar color="secondary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title>
+              <span>Indicadores GrupoSC</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
 
+      <ion-item *ngFor= "let anl of analise">
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-label>Item Avatar</ion-label>
+        <h2>{{anl.codigo}}</h2>
+        <p>{{anl.nome}}</p>
+      </ion-item>   
+
+ 
 </ion-content>
