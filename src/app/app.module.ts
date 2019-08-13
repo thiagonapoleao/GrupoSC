@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
-import { DatabaseService } from './provider/database.service';
+import { DadosSCService } from '../app/pages/services/dados-sc.service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -28,7 +28,7 @@ import { HttpModule } from '@angular/http';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Keyboard,
     SQLite,
-    DatabaseService
+    DadosSCService
   ],
   bootstrap: [AppComponent]
 })

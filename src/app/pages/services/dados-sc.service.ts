@@ -7,8 +7,8 @@ import { map } from 'rxjs/operators';
 })
 export class DadosSCService {
 
-  private api: String = 'https://dadosabertos.camara.leg.br/api/v2/';
-  //private api : String = 'http://localhost:8000';
+  //private api: String = 'https://dadosabertos.camara.leg.br/api/v2/';
+  private api : String = 'http://localhost';
  // url: string = "http://localhost/phpp/";
 
   constructor(public http: Http) { }
@@ -48,7 +48,7 @@ export class DadosSCService {
 
   getAlluser() {
     return new Promise((resolve, reject) => {
-      let url = 'http://localhost:8000/api/allUser'; //laravel
+      let url = 'http://localhost/phpp/dados.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {
