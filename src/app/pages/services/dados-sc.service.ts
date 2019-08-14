@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
+// import { resolve } from 'path';
+// import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +10,8 @@ import { map } from 'rxjs/operators';
 export class DadosSCService {
 
   //private api: String = 'https://dadosabertos.camara.leg.br/api/v2/';
-  private api : String = 'http://localhost';
- // url: string = "http://localhost/phpp/";
+  private api: String = 'http://localhost';
+  // url: string = "http://localhost/phpp/";
 
   constructor(public http: Http) { }
 
@@ -59,6 +61,24 @@ export class DadosSCService {
           });
     });
   }
+
+  getUpm() {
+    
+    return new Promise((resolve, reject) => {
+      let url = 'http://localhost/phpp/upm.php'; //laravel
+      this.http.get(url)
+      .toPromise()
+      .then((result: any) => {
+        resolve(result.json());
+        console.log("getUPM");
+      },
+        (error) => {
+          resolve(error.json());
+          console.log("erro");
+        });
+  });
+}
+
 
 }
 

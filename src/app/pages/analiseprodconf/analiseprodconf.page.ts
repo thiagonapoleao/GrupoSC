@@ -26,13 +26,6 @@ export class AnaliseprodconfPage implements OnInit {
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
 
     this.getDados();
-    // this.route.queryParams.subscribe(parametros => {
-    //   this.codigo = parametros["codigo"];
-    //   this.nome = parametros["nome"];
-    //   this.total = parametros["total"];
-    //   this.media = parametros["media"];
-    //   this.porcen = parametros["porcen"];
-    // });
 
   }
 

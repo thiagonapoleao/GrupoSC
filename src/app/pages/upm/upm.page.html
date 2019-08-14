@@ -1,30 +1,46 @@
-<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
-  (ionScrollEnd)="logScrollEnd()">
+<ion-content>
 
-  <ion-header >
-      <ion-toolbar color="secondary">
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>
-              <span>Indicadores GrupoSC</span>
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
+  <ion-header color="secondary">
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        <span>Indicadores GrupoSC</span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-list>
-  <ion-item *ngFor "let upms of upm">
-    <ion-avatar item-start>
+  <div class="pincipal">
 
-    </ion-avatar>
-    <h2>{{upm.data}}</h2>
-    <p>{{upm.volumes}}</p>
-    <p>{{upm.erros}}</p>
-    <p>{{upm.upm}}</p>
-  </ion-item>
-</ion-list>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da UPM.
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-list *ngFor="let upm of upms">
+        <ion-item>
+          <!-- <ion-icon name="nome" slot="start"></ion-icon> -->
+          <ion-label>Indicador</ion-label>
+          <ion-card-content>{{upm.indicador}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Meta Mensal</ion-label>
+          <ion-card-content>{{upm.meta}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Real até o período</ion-label>
+          <ion-card-content>{{upm.upm}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Erros</ion-label>
+          <ion-card-content>{{upm.erros}}</ion-card-content>
+        </ion-item>
 
-    
+      </ion-list>
 
- 
+
+    </ion-card>
+  </div>
+
 </ion-content>
