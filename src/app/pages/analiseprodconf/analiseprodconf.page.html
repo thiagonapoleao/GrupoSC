@@ -1,42 +1,44 @@
-<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
-  (ionScrollEnd)="logScrollEnd()">
+<ion-content>
 
-  <ion-header>
-      <ion-toolbar color="secondary">
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>
-              <span>Indicadores GrupoSC</span>
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
+  <ion-header color="secondary">
+    <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        <span>Indicadores GrupoSC</span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-      <ion-card>
-        <ion-card-header>
-          <ion-card-subtitle>Analise da Produção por Conferente.</ion-card-subtitle>          
-        </ion-card-header>
-        <ion-list *ngFor="let analise of analises">
-          <ion-item>
-            <ion-icon name="nome" slot="start"></ion-icon>
-            <ion-card-content>{{analise.nome}}</ion-card-content>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="total" slot="start"></ion-icon>
-            <ion-card-content>{{analise.total}}</ion-card-content>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="media" slot="start"></ion-icon>
-            <ion-card-content>{{analise.media}}</ion-card-content>
-          </ion-item>
-          <ion-item>
-            <ion-icon name="porcen" slot="start"></ion-icon>
-            <ion-card-content>{{analise.porcen}}</ion-card-content>
-          </ion-item>
-        </ion-list>
+  <div class="pincipal"> 
+
+    <ion-card >
+      <ion-card-header>
+        <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px" >Analise da Produção por Conferente.</ion-card-subtitle>
+      </ion-card-header>
+      <ion-list *ngFor="let analise of analises">
+        <ion-item>
+          <!-- <ion-icon name="nome" slot="start"></ion-icon> -->
+          <ion-card-content>{{analise.nome}}</ion-card-content>
+        </ion-item>
+        <ion-item>         
+          <ion-label>Total Conferido</ion-label>
+          <ion-card-content>{{analise.total}}</ion-card-content>
+        </ion-item>
+        <ion-item>          
+          <ion-label>Media</ion-label>
+          <ion-card-content>{{analise.media}}</ion-card-content>
+        </ion-item>
+        <ion-item>         
+          <ion-label>Porcentagem</ion-label>
+          <ion-card-content>{{analise.porcen}}</ion-card-content>
+        </ion-item>
+        
+      </ion-list>
 
 
-      </ion-card>
+    </ion-card>
+  </div>
 
- 
 </ion-content>
