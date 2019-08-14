@@ -19,10 +19,10 @@ export class UpmPage implements OnInit {
   }
 
   getBusca() {
-    this.service.getBusca().subscribe(
-      data => this.upm = data,
-      err => console.log(err)
-    );
+    // this.service.getBusca().subscribe(
+    //   data => this.upm = data,
+    //   err => console.log(err)
+    // );
   }
 
 }
