@@ -26,7 +26,7 @@ export class UpmPage implements OnInit {
 
   getDados() {
     this.service.getUpm().then((result: any[]) => {
-      this.upms = result['umps'];
+      this.upms = result['upms'];
     }).catch((error: any) => {
       console.error("error: " + error);
     });
