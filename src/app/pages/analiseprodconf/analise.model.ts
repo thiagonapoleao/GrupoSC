@@ -2,12 +2,12 @@ import { DecimalPipe } from '@angular/common';
 
 export class Analise {
 
-    id: number;
-    codigo: number;
+    id: string;
+    codigo: string;
     nome: string;
-    total: number;
-    media: number;
-    porcen: number;
-    data: Date;
+    total: string;
+    media: string;
+    porcen: string;
+    data: string;
 
 }

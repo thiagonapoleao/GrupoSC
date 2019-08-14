@@ -16,24 +16,26 @@
         <ion-card-header>
           <ion-card-subtitle>Analise da Produção por Conferente.</ion-card-subtitle>          
         </ion-card-header>
-        
-        <ion-item>
-          <ion-icon name="nome" slot="start"></ion-icon>
-          <ion-card-content>{{nome}}</ion-card-content>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="total" slot="start"></ion-icon>
-          <ion-card-content>{{total}}</ion-card-content>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="media" slot="start"></ion-icon>
-          <ion-card-content>{{media}}</ion-card-content>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="porcen" slot="start"></ion-icon>
-          <ion-card-content>{{porcen}}</ion-card-content>
-        </ion-item>
-      
+        <ion-list *ngFor="let analise of analises">
+          <ion-item>
+            <ion-icon name="nome" slot="start"></ion-icon>
+            <ion-card-content>{{analise.nome}}</ion-card-content>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="total" slot="start"></ion-icon>
+            <ion-card-content>{{analise.total}}</ion-card-content>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="media" slot="start"></ion-icon>
+            <ion-card-content>{{analise.media}}</ion-card-content>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="porcen" slot="start"></ion-icon>
+            <ion-card-content>{{analise.porcen}}</ion-card-content>
+          </ion-item>
+        </ion-list>
+
+
       </ion-card>
 
  

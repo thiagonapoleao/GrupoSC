@@ -25,7 +25,7 @@ export class AnaliseprodconfPage implements OnInit {
   //aciona o construtor para receber dados
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
 
-
+    this.getDados();
     // this.route.queryParams.subscribe(parametros => {
     //   this.codigo = parametros["codigo"];
     //   this.nome = parametros["nome"];
@@ -38,7 +38,7 @@ export class AnaliseprodconfPage implements OnInit {
 
   getDados() {
     this.service.getAlluser().then(( result : any[]) =>{
-      this.analises = result['api'];
+      this.analises = result['analises'];
     }).catch((error : any) => {
       console.error("error: " + error);
     });
