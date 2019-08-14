@@ -48,7 +48,7 @@ export class DadosSCService {
 
   getAlluser() {
     return new Promise((resolve, reject) => {
-      let url = 'http://localhost/phpp/dados.php'; //laravel
+      let url = 'http://localhost/phpp/api.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {

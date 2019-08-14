@@ -38,7 +38,7 @@ export class AnaliseprodconfPage implements OnInit {
 
   getDados() {
     this.service.getAlluser().then(( result : any[]) =>{
-      this.analises = result['dados'];
+      this.analises = result['api'];
     }).catch((error : any) => {
       console.error("error: " + error);
     });
