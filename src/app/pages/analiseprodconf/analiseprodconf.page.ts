@@ -3,7 +3,7 @@ import { DadosSCService } from '../services/dados-sc.service';
 import { NavController } from '@ionic/angular';
 //import da lib responsavel pelo recebimeto de parametros
 import { ActivatedRoute } from '@angular/router';
-import { Analise } from './analise.model'
+import { Analise } from './analise.model';
 
 
 @Component({

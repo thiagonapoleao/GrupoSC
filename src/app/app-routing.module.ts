@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'upm', loadChildren: './pages/upm/upm.module#UpmPageModule' },
   { path: 'upmlinha', loadChildren: './pages/upmlinha/upmlinha.module#UpmlinhaPageModule' },
   { path: 'analiseprodconf', loadChildren: './pages/analiseprodconf/analiseprodconf.module#AnaliseprodconfPageModule' },
-  { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },
+  { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },  { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+
   //{ path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' }
 
 ];

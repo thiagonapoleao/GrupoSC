@@ -1,23 +1,55 @@
-
-
 .pincipal {
-     
-    background-color:  #2A5695;
-
-    ion-list {
-            background-color:  #2A5695;
+    
+    position: absolute;
+   
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-image: url('/assets/img/GrupoSC-d.png');
+    background-repeat: no-repeat;
+    background-size: contain;    
+   
+ 
+    
+        ion-slides {
+            height: 7%;                
         }
-        
+    
         span {
             color: #ffffff;   
+            
         }
         
+        ion-item {  
+            --border-radius: 10px;             
+        }
+
+        ion-list {
+            --border-radius: 20px;  
+        }
+
         ion-label {
-            font-size: 16px;
+            font-size: 12px;
             white-space: pre-line;   
         }
 
-                      
+        ion-button {
+            width:90;
+            height:100;
+            max-height: 40px;
+            min-height: 40px;
+            max-width: 60px;
+            min-width: 60px;
+            font-size: 12px;
+            white-space: pre-line;            
+            --border-radius: 6px;     
+        }
+
+      .menu {
+        font-size: 9px;
+      }
+    
     }
     
     
