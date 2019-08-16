@@ -13,30 +13,27 @@
 
   <div class="pincipal">
 
-      <ion-slides></ion-slides>
-  
-      <ion-card>
+    <ion-card>
+      <p>
+        <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da UPM
+        </ion-card-subtitle>
+      </p>
+      <ion-item class="top">
+        <ion-label>UPM</ion-label>
+        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+        <ion-button color="danger" class="menu">UPM</ion-button>
+        <ion-button color="danger" class="menu">Erros</ion-button>
+      </ion-item>
+      <P>
         <p>
-          <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da UPM.</ion-card-subtitle>
+          <ion-item *ngFor="let upm of upms">
+            <ion-label>{{upm.indicador}}</ion-label>
+            <ion-button>{{upm.meta}}</ion-button>
+            <ion-button>{{upm.upm}}</ion-button>
+            <ion-button>{{upm.erros}}</ion-button>
+          </ion-item>
         </p>
-        <ion-item class="top">
-          <ion-label>UPM</ion-label>
-          <ion-button color="danger" class="menu">Meta Mensal</ion-button>
-          <ion-button color="danger" class="menu">UPM</ion-button>
-          <ion-button color="danger" class="menu">Erros</ion-button>
-        </ion-item>
-        <P>
-          <p>
-            <ion-item *ngFor="let upm of upms">
-              <ion-label>{{upm.indicador}}</ion-label>
-              <ion-button>{{upm.meta}}</ion-button>
-              <ion-button>{{upm.upm}}</ion-button>
-              <ion-button>{{upm.erros}}</ion-button>
-            </ion-item>
-          </p>
-  
-      </ion-card>
-    </div>
-  </ion-content>
 
- 
+    </ion-card>
+  </div>
+</ion-content>

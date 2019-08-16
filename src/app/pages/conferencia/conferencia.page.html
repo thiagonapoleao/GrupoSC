@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content >
 
   <ion-header color="secondary">
     <ion-toolbar color="secondary">
@@ -13,14 +13,10 @@
 
   <div class="pincipal">
 
-    <ion-slides>
-
-    </ion-slides>
-
     <ion-card>
       <p>
         <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da Produção por
-          Conferente.</ion-card-subtitle>
+          Conferente</ion-card-subtitle>
       </p>
       <ion-item class="top">
         <ion-label>Conferente</ion-label>
@@ -28,7 +24,7 @@
         <ion-button color="danger" class="menu">Media</ion-button>
         <ion-button color="danger" class="menu">% da Meta</ion-button>
       </ion-item>
-      <P>
+  
         <p>
           <ion-item *ngFor="let analise of analises">
             <ion-label>{{analise.nome}}</ion-label>

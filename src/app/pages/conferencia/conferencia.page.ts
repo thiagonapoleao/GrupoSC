@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { DadosSCService } from '../services/dados-sc.service';
-import { NavController } from '@ionic/angular';
+import { NavController} from '@ionic/angular';
 //import da lib responsavel pelo recebimeto de parametros
 import { ActivatedRoute } from '@angular/router';
 import { Analise } from './conferencia.model';
+
 
 @Component({
   selector: 'app-conferencia',
@@ -11,7 +12,6 @@ import { Analise } from './conferencia.model';
   styleUrls: ['./conferencia.page.scss'],
 })
 export class ConferenciaPage implements OnInit {
-
   analises : Analise[];
 
   //replica aqui os atributos
@@ -21,8 +21,18 @@ export class ConferenciaPage implements OnInit {
   media: any;
   porcen: any;
 
-  constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) { }
+  constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) { 
+    this.getDados();
+  }
 
+
+  getDados() {
+    this.service.getAlluser().then(( result : any[]) =>{
+      this.analises = result['analises'];
+    }).catch((error : any) => {
+      console.error("error: " + error);
+    });
+  }
   ngOnInit() {
   }
 
