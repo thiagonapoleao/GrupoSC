@@ -6,5 +6,6 @@ export class Upm {
     meta: string;
     upm: string;
     erros: string;
+    porcen: string;
   
 }

@@ -8,6 +8,6 @@ export class Analise {
     total: string;
     media: string;
     porcen: string;
-    data: string;
+    hora: string;
 
 }

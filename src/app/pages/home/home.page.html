@@ -1,23 +1,16 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span>Indicadores GrupoSC</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-
-  <ion-header>
-    <ion-toolbar color="secondary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        <span>Indicadores GrupoSC</span>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-
   <div class="pincipal">
-
-    <ion-slides>
-      <ion-slide>
-      </ion-slide>
-    </ion-slides>
-
     <ion-card>
       <ion-item class="top">
         <ion-label>Indicador</ion-label>
@@ -26,31 +19,32 @@
         <ion-button color="danger" class="menu">Real Até o Período</ion-button>
         <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
       </ion-item>
+
       <P>
-        <ion-item >
-          <ion-label [routerLink]="['/upm']">UPM Total</ion-label>
+        <ion-item>
+          <ion-label>Quebras GMD + CRI</ion-label>
           <ion-button>{{upmTotal?.meta}}</ion-button>
           <ion-button>{{upmTotal?.meta}}</ion-button>
           <ion-button>{{upmTotal?.upm}}</ion-button>
-          <ion-button>{{upmTotal?.meta}}</ion-button>
+          <ion-button>{{upmTotal?.porcen}}</ion-button>
         </ion-item>
       </P>
       <P>
         <ion-item>
-          <ion-label>UPM Linha</ion-label>
+          <ion-label>Chegadas CD</ion-label>
           <ion-button>{{upmLinha?.meta}}</ion-button>
           <ion-button>{{upmLinha?.meta}}</ion-button>
           <ion-button>{{upmLinha?.upm}}</ion-button>
-          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.porcen}}</ion-button>
         </ion-item>
       </P>
       <P>
         <ion-item>
-          <ion-label>UPM Psico</ion-label>
+          <ion-label>Saídas CD</ion-label>
           <ion-button>{{upmPsico?.meta}}</ion-button>
           <ion-button>{{upmPsico?.meta}}</ion-button>
           <ion-button>{{upmPsico?.upm}}</ion-button>
-          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.porcen}}</ion-button>
         </ion-item>
       </P>
       <P>
@@ -80,9 +74,152 @@
           <ion-button>0.05%</ion-button>
         </ion-item>
       </P>
+      <P>
+        <ion-item>
+          <ion-label>Devolução Total WEB + BI</ion-label>
+          <ion-button>{{upmTotal?.meta}}</ion-button>
+          <ion-button>{{upmTotal?.meta}}</ion-button>
+          <ion-button>{{upmTotal?.upm}}</ion-button>
+          <ion-button>{{upmTotal?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Devolução (BI Log)</ion-label>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.upm}}</ion-button>
+          <ion-button>{{upmLinha?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Devolução (BI Com)</ion-label>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.upm}}</ion-button>
+          <ion-button>{{upmPsico?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Devolução (WEB)</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Bloqueio</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Lead Time Interno Total (visão CD)</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label [routerLink]="['/upm']">UPM Total</ion-label>
+          <ion-button>{{upmTotal?.meta}}</ion-button>
+          <ion-button>{{upmTotal?.meta}}</ion-button>
+          <ion-button>{{upmTotal?.upm}}</ion-button>
+          <ion-button>{{upmTotal?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>UPM Auditoria Total</ion-label>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.upm}}</ion-button>
+          <ion-button>{{upmLinha?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>UPM Linha</ion-label>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.upm}}</ion-button>
+          <ion-button>{{upmLinha?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>UPM Auditoria linha</ion-label>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.meta}}</ion-button>
+          <ion-button>{{upmLinha?.upm}}</ion-button>
+          <ion-button>{{upmLinha?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>UPM Psico</ion-label>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.upm}}</ion-button>
+          <ion-button>{{upmPsico?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>UPM Auditoria Psico </ion-label>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.meta}}</ion-button>
+          <ion-button>{{upmPsico?.upm}}</ion-button>
+          <ion-button>{{upmPsico?.porcen}}</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Acuracidade Lote</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>FEFO - Reposição Lote Antigo</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Unidades Vendidas Total</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
+      <P>
+        <ion-item>
+          <ion-label>Venda</ion-label>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.25%</ion-button>
+          <ion-button>0.05%</ion-button>
+          <ion-button>0.05%</ion-button>
+        </ion-item>
+      </P>
 
 
     </ion-card>
-
   </div>
 </ion-content>
