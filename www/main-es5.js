@@ -587,14 +587,9 @@ var AppComponent = /** @class */ (function () {
                 icon: 'upm'
             },
             {
-                title: 'Conferencia',
+                title: 'Produção por Conferente',
                 url: '/conferencia',
                 icon: 'conferencia'
-            },
-            {
-                title: 'Produção por Conferente',
-                url: '/analiseprodconf',
-                icon: 'analiseprodconf'
             }
         ];
         this.initializeApp();

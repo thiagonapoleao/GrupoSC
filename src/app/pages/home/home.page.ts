@@ -13,6 +13,8 @@ export class HomePage implements OnInit {
 
   upms: Upm[];
   upmTotal: Upm = new Upm();
+  upmLinha: Upm = new Upm();
+  upmPsico: Upm = new Upm();
 
 
 
@@ -26,13 +28,7 @@ export class HomePage implements OnInit {
   getDados() {
     this.service.getUpm().then((result: any[]) => {
       this.upms = result['upms'];
-      console.log(this.upms);
-       this.upms.forEach(u => {
-        if (u.indicador == "Total") {
-          console.log(this.upmTotal);
-          this.upmTotal = u;
-        }
-      });
+      console.log(this.upms);     
     }).catch((error: any) => {
       console.error("error: " + error);
     }).finally(() => {
@@ -40,6 +36,14 @@ export class HomePage implements OnInit {
         if (u.indicador == "Total") {
           console.log(this.upmTotal);
           this.upmTotal = u;
+        }
+        if (u.indicador == "Linha") {
+          console.log(this.upmLinha);
+          this.upmLinha = u;
+        }
+        if (u.indicador == "Psico") {
+          console.log(this.upmPsico);
+          this.upmPsico = u;
         }
       });
     });

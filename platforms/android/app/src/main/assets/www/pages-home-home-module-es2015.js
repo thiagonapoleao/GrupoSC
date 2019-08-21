@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n\r\n  <ion-header>\r\n    <ion-toolbar color=\"secondary\">\r\n      <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title>\r\n        <span>Indicadores GrupoSC</span>\r\n      </ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <div class=\"pincipal\">\r\n\r\n    <ion-slides>\r\n      <ion-slide>\r\n      </ion-slide>\r\n    </ion-slides>\r\n\r\n    <ion-card>\r\n      <ion-item class=\"top\">\r\n        <ion-label>Indicador</ion-label>\r\n        <ion-button color=\"danger\" class=\"menu\">Meta Mensal</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">Meta Até o Período</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">Real Até o Período</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">VAR% até o Período</ion-button>\r\n      </ion-item>\r\n      <P>\r\n        <ion-item >\r\n          <ion-label [routerLink]=\"['/upm']\">UPM Total</ion-label>\r\n          <ion-button>{{upmTotal?.Meta}}</ion-button>\r\n          <ion-button>{{upmTotal?.Meta}}</ion-button>\r\n          <ion-button>{{upmTotal?.UPM}}</ion-button>\r\n          <ion-button>{{upmTotal?.Meta}}</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>UPM Linha</ion-label>\r\n          <ion-button>900</ion-button>\r\n          <ion-button>900</ion-button>\r\n          <ion-button>1300</ion-button>\r\n          <ion-button>1300</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>UPM Psico</ion-label>\r\n          <ion-button>900</ion-button>\r\n          <ion-button>900</ion-button>\r\n          <ion-button>1300</ion-button>\r\n          <ion-button>1300</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Total</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Operacional</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Comercial</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n\r\n\r\n    </ion-card>\r\n\r\n  </div>\r\n</ion-content>"
+module.exports = "<ion-content>\r\n\r\n  <ion-header>\r\n    <ion-toolbar color=\"secondary\">\r\n      <ion-buttons slot=\"start\">\r\n        <ion-menu-button></ion-menu-button>\r\n      </ion-buttons>\r\n      <ion-title>\r\n        <span>Indicadores GrupoSC</span>\r\n      </ion-title>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n\r\n  <div class=\"pincipal\">\r\n\r\n    <ion-slides>\r\n      <ion-slide>\r\n      </ion-slide>\r\n    </ion-slides>\r\n\r\n    <ion-card>\r\n      <ion-item class=\"top\">\r\n        <ion-label>Indicador</ion-label>\r\n        <ion-button color=\"danger\" class=\"menu\">Meta Mensal</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">Meta Até o Período</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">Real Até o Período</ion-button>\r\n        <ion-button color=\"danger\" class=\"menu\">VAR% até o Período</ion-button>\r\n      </ion-item>\r\n      <P>\r\n        <ion-item >\r\n          <ion-label [routerLink]=\"['/upm']\">UPM Total</ion-label>\r\n          <ion-button>{{upmTotal?.meta}}</ion-button>\r\n          <ion-button>{{upmTotal?.meta}}</ion-button>\r\n          <ion-button>{{upmTotal?.upm}}</ion-button>\r\n          <ion-button>{{upmTotal?.meta}}</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>UPM Linha</ion-label>\r\n          <ion-button>{{upmLinha?.meta}}</ion-button>\r\n          <ion-button>{{upmLinha?.meta}}</ion-button>\r\n          <ion-button>{{upmLinha?.upm}}</ion-button>\r\n          <ion-button>{{upmLinha?.meta}}</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>UPM Psico</ion-label>\r\n          <ion-button>{{upmPsico?.meta}}</ion-button>\r\n          <ion-button>{{upmPsico?.meta}}</ion-button>\r\n          <ion-button>{{upmPsico?.upm}}</ion-button>\r\n          <ion-button>{{upmPsico?.meta}}</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Total</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Operacional</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n      <P>\r\n        <ion-item>\r\n          <ion-label>Cancelamento Comercial</ion-label>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.25%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n          <ion-button>0.05%</ion-button>\r\n        </ion-item>\r\n      </P>\r\n\r\n\r\n    </ion-card>\r\n\r\n  </div>\r\n</ion-content>"
 
 /***/ }),
 
@@ -94,6 +94,8 @@ let HomePage = class HomePage {
     constructor(service) {
         this.service = service;
         this.upmTotal = new _upm_upm_model__WEBPACK_IMPORTED_MODULE_4__["Upm"]();
+        this.upmLinha = new _upm_upm_model__WEBPACK_IMPORTED_MODULE_4__["Upm"]();
+        this.upmPsico = new _upm_upm_model__WEBPACK_IMPORTED_MODULE_4__["Upm"]();
     }
     ngOnInit() {
         this.getDados();
@@ -103,12 +105,6 @@ let HomePage = class HomePage {
         this.service.getUpm().then((result) => {
             this.upms = result['upms'];
             console.log(this.upms);
-            this.upms.forEach(u => {
-                if (u.indicador == "Total") {
-                    console.log(this.upmTotal);
-                    this.upmTotal = u;
-                }
-            });
         }).catch((error) => {
             console.error("error: " + error);
         }).finally(() => {
@@ -116,6 +112,14 @@ let HomePage = class HomePage {
                 if (u.indicador == "Total") {
                     console.log(this.upmTotal);
                     this.upmTotal = u;
+                }
+                if (u.indicador == "Linha") {
+                    console.log(this.upmLinha);
+                    this.upmLinha = u;
+                }
+                if (u.indicador == "Psico") {
+                    console.log(this.upmPsico);
+                    this.upmPsico = u;
                 }
             });
         });
