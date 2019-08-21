@@ -23,14 +23,9 @@ export class AppComponent {
       icon: 'upm'
     },
     {
-      title: 'Conferencia',
+      title: 'Produção por Conferente',
       url: '/conferencia',
       icon: 'conferencia'
-    },
-    {
-      title: 'Produção por Conferente',
-      url: '/analiseprodconf',
-      icon: 'analiseprodconf'
     }
   ];
 
