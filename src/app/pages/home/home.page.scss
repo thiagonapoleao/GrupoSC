@@ -5,12 +5,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    height: 100%;
-    background-image: url('/assets/img/GrupoSC-d.png');
-    background-repeat: no-repeat;
-    background-size: contain;    
-   
- 
+    height: 100%;  
     
         ion-slides {
             height: 10%;                
@@ -52,9 +47,7 @@
     
 
 ion-content {
-    --background: url('/assets/img/GrupoSC-d.png') 0 0/100% 100% no-repeat;
-    // background-repeat: no-repeat;    
-    // background-size: cover ;
+    --background: url('/assets/img/GrupoSC-d.png') 0 0/100% 100% no-repeat;   
 }
     
       
