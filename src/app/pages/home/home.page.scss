@@ -1,7 +1,6 @@
 .pincipal {
     
     position: absolute;
-   
     left: 0;
     right: 0;
     bottom: 0;
@@ -17,11 +16,12 @@
         }
         
         ion-item {  
-            --border-radius: 5px;                 
-
-        
+            --border-radius: 5px;  
+            
+                    
         }
 
+       
         ion-label {
             font-size: 12px;
             white-space: pre-line;   
@@ -42,8 +42,24 @@
       .menu {
         font-size: 9px;
       }
+
+    // cabeçalho da pagina home
+    //   .top {
+    //     position: fixed;
+    //     margin-bottom: 40px !important;
+    //     z-index: 999;
+        
+    // }
+
+    // p{
+    //     margin-top: 60px;
+    //     margin-bottom: -50px;
+    // }
     
     }
+
+   
+
     
 
 ion-content {

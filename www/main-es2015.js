@@ -729,7 +729,8 @@ let DadosSCService = class DadosSCService {
     }
     getAlluser() {
         return new Promise((resolve, reject) => {
-            let url = 'http://localhost/phpp/api.php'; //laravel
+            let url = 'http://172.20.10.6/phpp/api.php'; //laravel
+            //let url = 'http://localhost/phpp/api.php'; //laravel
             this.http.get(url)
                 .toPromise()
                 .then((result) => {
@@ -741,7 +742,7 @@ let DadosSCService = class DadosSCService {
     }
     getUpm() {
         return new Promise((resolve, reject) => {
-            let url = 'http://localhost/phpp/upm.php'; //laravel
+            let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
             this.http.get(url)
                 .toPromise()
                 .then((result) => {

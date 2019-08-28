@@ -746,7 +746,8 @@ var DadosSCService = /** @class */ (function () {
     DadosSCService.prototype.getAlluser = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = 'http://localhost/phpp/api.php'; //laravel
+            var url = 'http://172.20.10.6/phpp/api.php'; //laravel
+            //let url = 'http://localhost/phpp/api.php'; //laravel
             _this.http.get(url)
                 .toPromise()
                 .then(function (result) {
@@ -759,7 +760,7 @@ var DadosSCService = /** @class */ (function () {
     DadosSCService.prototype.getUpm = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = 'http://localhost/phpp/upm.php'; //laravel
+            var url = 'http://172.20.10.6/phpp/upm.php'; //laravel
             _this.http.get(url)
                 .toPromise()
                 .then(function (result) {

@@ -48,9 +48,28 @@ export class DadosSCService {
     });
   }
 
+
   getAlluser() {
     return new Promise((resolve, reject) => {
+      //let url = 'http://172.20.10.6/phpp/api.php'; //laravel
       let url = 'http://localhost/phpp/api.php'; //laravel
+      this.http.get(url)
+        .toPromise()
+        .then((result: any) => {
+          resolve(result.json());
+        },
+          (error) => {
+            resolve(error.json());
+          });
+    });
+  }
+
+
+
+  getFarol() {
+    return new Promise((resolve, reject) => {
+      //let url = 'http://172.20.10.6/phpp/api-indicadores.php'; //laravel
+      let url = 'http://localhost/phpp/api-indicadores.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {
@@ -65,6 +84,7 @@ export class DadosSCService {
   getUpm() {
     
     return new Promise((resolve, reject) => {
+     // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
       let url = 'http://localhost/phpp/upm.php'; //laravel
       this.http.get(url)
       .toPromise()
