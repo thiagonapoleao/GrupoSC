@@ -12,10 +12,13 @@ import { Upm } from './upm.model';
 export class UpmPage implements OnInit {
 
   upms: Upm[];
-  indicador: any;
+  tipo: any;
   meta: any;
   upm: any;
   erros: any;
+  conferencia: any;
+  data: any;
+  hora: any;
 
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {

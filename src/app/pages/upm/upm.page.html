@@ -20,14 +20,16 @@
       <ion-button color="danger" class="menu">Meta Mensal</ion-button>
       <ion-button color="danger" class="menu">UPM</ion-button>
       <ion-button color="danger" class="menu">Erros</ion-button>
+      <ion-button color="danger" class="menu">Qt Conf.</ion-button>
     </ion-item>
     <P>
       <p>
         <ion-item *ngFor="let upm of upms">
-          <ion-label>{{upm.indicador}}</ion-label>
+          <ion-label>{{upm.tipo}}</ion-label>
           <ion-button>{{upm.meta}}</ion-button>
           <ion-button>{{upm.upm}}</ion-button>
           <ion-button>{{upm.erros}}</ion-button>
+          <ion-button>{{upm.conferencia}}</ion-button>
         </ion-item>
 
       </p>
