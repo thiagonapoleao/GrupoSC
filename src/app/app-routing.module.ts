@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'analiseprodconf', loadChildren: './pages/analiseprodconf/analiseprodconf.module#AnaliseprodconfPageModule' },
   { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },  { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+  { path: 'separacao', loadChildren: './pages/separacao/separacao.module#SeparacaoPageModule' },
 
   //{ path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' }
 

@@ -23,6 +23,11 @@ export class AppComponent {
       icon: 'upm'
     },
     {
+      title: 'Erros de separação',
+      url: '/separacao',
+      icon: 'separacao'
+    },
+    {
       title: 'Produção por Conferente',
       url: '/conferencia',
       icon: 'conferencia'

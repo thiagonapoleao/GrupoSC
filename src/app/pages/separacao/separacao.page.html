@@ -1,0 +1,32 @@
+<ion-header color="secondary">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span>Indicadores GrupoSC</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="pincipal">
+    <p>
+      <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise de Erros por Separador</ion-card-subtitle>
+    </p>
+    <ion-item class="top">
+      <ion-label>Separador</ion-label>
+      <ion-button color="danger" class="menu">Erros</ion-button>
+
+    </ion-item>
+
+    <p>
+      <ion-item *ngFor="let analise of analises">
+        <ion-label>{{analise.nome}}</ion-label>
+        <ion-button>{{analise.total}}</ion-button>       
+      </ion-item>
+    </p>
+
+  </ion-card>
+</ion-content>

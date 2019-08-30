@@ -81,8 +81,7 @@ export class DadosSCService {
     });
   }
 
-  getUpm() {
-    
+  getUpm() {    
     return new Promise((resolve, reject) => {
      // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
       let url = 'http://localhost/phpp/upm.php'; //laravel
@@ -97,6 +96,23 @@ export class DadosSCService {
           console.log("erro");
         });
   });
+}
+
+getErros() {    
+  return new Promise((resolve, reject) => {
+   // let url = 'http://172.20.10.6/phpp/api-erros-separacao.php'; //laravel
+    let url = 'http://localhost/phpp/api-erros-separacao.php'; //laravel
+    this.http.get(url)
+    .toPromise()
+    .then((result: any) => {
+      resolve(result.json());
+      console.log("getErros");
+    },
+      (error) => {
+        resolve(error.json());
+        console.log("erro");
+      });
+});
 }
 
 
