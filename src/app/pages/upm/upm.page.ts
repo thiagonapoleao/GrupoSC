@@ -22,7 +22,6 @@ export class UpmPage implements OnInit {
 
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
-
     this.getDados();
   }
 

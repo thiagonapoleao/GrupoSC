@@ -16,15 +16,14 @@
       <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise de Erros por Separador</ion-card-subtitle>
     </p>
     <ion-item class="top">
-      <ion-label>Separador</ion-label>
-      <ion-button color="danger" class="menu">Erros</ion-button>
-
+      <ion-label>Conferente</ion-label>
+      <ion-button color="danger" class="menu">Unidades</ion-button>
     </ion-item>
 
     <p>
       <ion-item *ngFor="let analise of analises">
         <ion-label>{{analise.nome}}</ion-label>
-        <ion-button>{{analise.total}}</ion-button>       
+        <ion-button>{{analise.total}}</ion-button>
       </ion-item>
     </p>
 

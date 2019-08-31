@@ -1,12 +1,12 @@
 import { DecimalPipe } from '@angular/common';
 
-export class Analiseerros {
+export class Analiseerr {
 
     id: string;
     codigo: string;
     nome: string;
-    total: string; 
+    total: string;    
     data: string;
-    hora: String;
+    hora: string;
 
 }

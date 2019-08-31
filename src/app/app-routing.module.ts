@@ -8,9 +8,11 @@ const routes: Routes = [
   { path: 'upm', loadChildren: './pages/upm/upm.module#UpmPageModule' },
   { path: 'upmlinha', loadChildren: './pages/upmlinha/upmlinha.module#UpmlinhaPageModule' },
   { path: 'analiseprodconf', loadChildren: './pages/analiseprodconf/analiseprodconf.module#AnaliseprodconfPageModule' },
-  { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },  { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+  { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
-  { path: 'separacao', loadChildren: './pages/separacao/separacao.module#SeparacaoPageModule' },
+  { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },  { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
+
+
 
   //{ path: 'services', loadChildren: './pages/services/services.module#ServicesPageModule' }
 

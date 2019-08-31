@@ -81,39 +81,40 @@ export class DadosSCService {
     });
   }
 
-  getUpm() {    
+  getUpm() {
     return new Promise((resolve, reject) => {
-     // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+      // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
       let url = 'http://localhost/phpp/upm.php'; //laravel
       this.http.get(url)
-      .toPromise()
-      .then((result: any) => {
-        resolve(result.json());
-        console.log("getUPM");
-      },
-        (error) => {
-          resolve(error.json());
-          console.log("erro");
-        });
-  });
-}
+        .toPromise()
+        .then((result: any) => {
+          resolve(result.json());
+          console.log("getUPM");
+        },
+          (error) => {
+            resolve(error.json());
+            console.log("erro");
+          });
+    });
+  }
 
-getErros() {    
-  return new Promise((resolve, reject) => {
-   // let url = 'http://172.20.10.6/phpp/api-erros-separacao.php'; //laravel
-    let url = 'http://localhost/phpp/api-erros-separacao.php'; //laravel
-    this.http.get(url)
-    .toPromise()
-    .then((result: any) => {
-      resolve(result.json());
-      console.log("getErros");
-    },
-      (error) => {
-        resolve(error.json());
-        console.log("erro");
-      });
-});
-}
+  getErrs() {
+    return new Promise((resolve, reject) => {
+      //let url = 'http://172.20.10.6/phpp/errseparacao.php'; //laravel
+      let url = 'http://localhost/phpp/errseparacao.php'; //laravel
+      this.http.get(url)
+        .toPromise()
+        .then((result: any) => {
+          resolve(result.json());
+          console.log("getErrs");
+        },
+          (error) => {
+            resolve(error.json());
+            console.log("erro");
+          });
+    });
+  }
+
 
 
 }
