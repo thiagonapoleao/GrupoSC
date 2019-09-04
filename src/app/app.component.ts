@@ -26,6 +26,11 @@ export class AppComponent {
       title: 'Produção por Conferente',
       url: '/conferencia',
       icon: 'conferencia'
+    },
+    {
+      title: 'Erros por separador',
+      url: '/errseparacao',
+      icon: 'errseparacao'
     }
   ];
 

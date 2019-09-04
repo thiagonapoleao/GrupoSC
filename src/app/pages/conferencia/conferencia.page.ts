@@ -29,6 +29,7 @@ export class ConferenciaPage implements OnInit {
   getDados() {
     this.service.getAlluser().then(( result : any[]) =>{
       this.analises = result['analises'];
+      console.log(this.analises);
     }).catch((error : any) => {
       console.error("error: " + error);
     });

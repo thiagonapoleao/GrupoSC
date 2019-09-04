@@ -35,10 +35,6 @@ export class HomePage implements OnInit {
   anlUnidades: Analise = new Analise();
   anlVenda: Analise = new Analise();
 
-
-
-
-
   constructor(public service: DadosSCService) {
   }
 
@@ -51,76 +47,54 @@ export class HomePage implements OnInit {
   getDados() {
     this.service.getFarol().then((result: any[]) => {
       this.analises = result['analises'];
-      console.log(this.analises);
+      // console.log(this.analises);
     }).catch((error: any) => {
       console.error("error: " + error);
     }).finally(() => {
       this.analises.forEach(u => {
-        if (u.indicadores == "Quebras GMD + CRI") {
-          console.log(this.anlQuebra);
+        if (u.indicadores == "Quebras GMD + CRI") {       
           this.anlQuebra = u;
-        } else if (u.indicadores == "Chegadas CD (D ?2)") {
-          console.log(this.anlChegada);
+        } else if (u.indicadores == "Chegadas CD (D ?2)") {        
           this.anlChegada = u;
-        } else if (u.indicadores == "Saidas CD") {
-          console.log(this.anlSaida);
+        } else if (u.indicadores == "Saidas CD") {        
           this.anlSaida = u;
-        } else if (u.indicadores == "Canc. Total") {
-          console.log(this.anlCancT);
+        } else if (u.indicadores == "Canc. Total") {        
           this.anlCancT = u;
-        } else if (u.indicadores == "Canc. Operacional") {
-          console.log(this.anlCancO);
+        } else if (u.indicadores == "Canc. Operacional") {          
           this.anlCancO = u;
-        } else if (u.indicadores == "Canc. Comercial") {
-          console.log(this.anlCancC);
+        } else if (u.indicadores == "Canc. Comercial") {        
           this.anlCancC = u;
-        } else if (u.indicadores == "Devolucao Total WEB + BO") {
-          console.log(this.anlDevT);
+        } else if (u.indicadores == "Devolucao Total WEB + BO") {          
           this.anlDevT = u;
-        } else if (u.indicadores == "Devolucao BO Log") {
-          console.log(this.anlDevLog);
+        } else if (u.indicadores == "Devolucao BO Log") {         
           this.anlDevLog = u;
-        } else if (u.indicadores == "Devolucao BO Com") {
-          console.log(this.anlDevCom);
+        } else if (u.indicadores == "Devolucao BO Com") {        
           this.anlDevCom = u;
-        } else if (u.indicadores == "Devolucao (WEB)") {
-          console.log(this.anlDevWeb);
+        } else if (u.indicadores == "Devolucao (WEB)") {        
           this.anlDevWeb = u;
-        } else if (u.indicadores == "Bloqueio") {
-          console.log(this.anlBloq);
+        } else if (u.indicadores == "Bloqueio") {         
           this.anlBloq = u;
-        } else if (u.indicadores == "Lead Time Interno Total (visao CD)") {
-          console.log(this.anlLeadTime);
+        } else if (u.indicadores == "Lead Time Interno Total (visao CD)") {         
           this.anlLeadTime = u;
-        } else if (u.indicadores == "UPM Separacao Total") {
-          console.log(this.anlUpmSepTotal);
+        } else if (u.indicadores == "UPM Separacao Total") {         
           this.anlUpmSepTotal = u;
-        } else if (u.indicadores == "UPM Separacao linha") {
-          console.log(this.anlUpmSepLinha);
+        } else if (u.indicadores == "UPM Separacao linha") {         
           this.anlUpmSepLinha = u;
-        } else if (u.indicadores == "UPM Separacao Psico") {
-          console.log(this.anlUpmSepPsico);
+        } else if (u.indicadores == "UPM Separacao Psico") {         
           this.anlUpmSepPsico = u;
-        } else if (u.indicadores == "UPM Auditoria Total") {
-          console.log(this.anlUpmAudTotal);
+        } else if (u.indicadores == "UPM Auditoria Total") {         
           this.anlUpmAudTotal = u;
-        } else if (u.indicadores == "UPM Auditoria linha") {
-          console.log(this.anlUpmAudLinha);
+        } else if (u.indicadores == "UPM Auditoria linha") {         
           this.anlUpmAudLinha = u;
-        } else if (u.indicadores == "UPM Auditoria Psico") {
-          console.log(this.anlUpmAudPsico);
+        } else if (u.indicadores == "UPM Auditoria Psico") {         
           this.anlUpmAudPsico = u;
-        } else if (u.indicadores == "Acuracidade Lote") {
-          console.log(this.anlAcuLote);
+        } else if (u.indicadores == "Acuracidade Lote") {         
           this.anlAcuLote = u;
-        } else if (u.indicadores == "FEFO - Reposicao Lote Antigo") {
-          console.log(this.anlFefo);
+        } else if (u.indicadores == "FEFO - Reposicao Lote Antigo") {         
           this.anlFefo = u;
-        } else if (u.indicadores == "Unidades Separadas Total") {
-          console.log(this.anlUnidades);
+        } else if (u.indicadores == "Unidades Separadas Total") {         
           this.anlUnidades = u;
-        } else if (u.indicadores == "Venda") {
-          console.log(this.anlVenda);
+        } else if (u.indicadores == "Venda") {   
           this.anlVenda = u;
         } else {
           console.log();

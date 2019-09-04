@@ -1,6 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Keyboard } from '@ionic-native/keyboard/ngx';
+import { DadosSCService } from '../services/dados-sc.service';
+import { NavController } from '@ionic/angular';
+//import da lib responsavel pelo recebimeto de parametros
+import { ActivatedRoute } from '@angular/router';
+import { Acesso } from './login.model';
+import { NavigationExtras } from '@angular/router';
 
 
 
@@ -10,22 +16,45 @@ import { Keyboard } from '@ionic-native/keyboard/ngx';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  @ViewChild(IonSlides,{static:false}) slides: IonSlides;
+  @ViewChild(IonSlides, { static: false }) slides: IonSlides;
+  navigation: NavigationExtras;
+  acessos: number;
 
+  //replica aqui os atributos
+  usuario: any;
+  nome: any;
+  senha: any;
+  data_cadastro: any;
+  role: any;
 
-  constructor( public keyboard: Keyboard) { }
+  constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
+   
+  }
+
 
   ngOnInit() { }
 
- segmentChanged(event: any) {
-   if (event.detail.value === 'login') {
-    this.slides.slidePrev();
-   } else {
-   this.slides.slideNext();
-   }
+
+  Login() {
+    this.service.getLogin(this.usuario, this.senha).then((result: any[]) => {
+      this.acessos = result['acessos'];
+      if (this.acessos == 1) {
+        // this.navigation = {
+        //   queryParams: {
+        //     user: user,
+        //     password: password,
+        //   }
+        // }
+        this.navCtrl.navigateBack(['home'], this.navigation);
+      }
+      console.log("getDados");
+    }).catch((error: any) => {
+      console.error("error: " + error);
+    });
   }
 
-  }
+
+}
 
 
 

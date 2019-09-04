@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
 // import { resolve } from 'path';
 // import { reject } from 'q';
@@ -15,44 +15,11 @@ export class DadosSCService {
 
   constructor(public http: Http) { }
 
-  getLogin() {
-
-  }
-
-
-  getDeputados() {
-    return new Promise((resolve, reject) => {
-      let url = this.api + 'deputados';
-      this.http.get(url)
-        .toPromise()
-        .then((result: any) => {
-          resolve(result.json());
-        },
-          (error) => {
-            reject(error.json());
-          });
-    });
-  }
-
-  getDespesas(id: Number) {
-    return new Promise((resolve, reject) => {
-      let url = this.api + 'deputados/' + id + '/despesas';
-      this.http.get(url)
-        .toPromise()
-        .then((result: any) => {
-          resolve(result.json());
-        },
-          (error) => {
-            resolve(error.json());
-          });
-    });
-  }
-
 
   getAlluser() {
     return new Promise((resolve, reject) => {
       //let url = 'http://172.20.10.6/phpp/api.php'; //laravel
-      let url = 'http://localhost/phpp/api.php'; //laravel
+      let url = 'http://localhost/phpp/api-prodconferencia.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {
@@ -61,6 +28,31 @@ export class DadosSCService {
           (error) => {
             resolve(error.json());
           });
+    });
+  }
+
+  getLogin(usuario: String, senha: String) {
+    let headers = new Headers(
+      {
+        'Content-Type': 'application/json'
+      });
+    let options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost/phpp/api-login.php',
+        {
+          "user": usuario,
+          "password": senha
+        }, options
+      )
+        .toPromise()
+        .then((response) => {
+          console.log('API Response : ' + response.json());
+          resolve(response.json());
+        }).catch(error => {
+          console.error('API Error : ' + error.status);
+          console.error('API Error : ' + JSON.stringify(error));
+          reject(error.json());
+        });
     });
   }
 
@@ -84,7 +76,7 @@ export class DadosSCService {
   getUpm() {
     return new Promise((resolve, reject) => {
       // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
-      let url = 'http://localhost/phpp/upm.php'; //laravel
+      let url = 'http://localhost/phpp/api-upm.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {
@@ -98,22 +90,54 @@ export class DadosSCService {
     });
   }
 
-  getErrs() {
+  getErrseparacao() {
     return new Promise((resolve, reject) => {
       //let url = 'http://172.20.10.6/phpp/errseparacao.php'; //laravel
-      let url = 'http://localhost/phpp/errseparacao.php'; //laravel
+      let url = 'http://localhost/phpp/api-errseparacao.php'; //laravel
       this.http.get(url)
         .toPromise()
         .then((result: any) => {
           resolve(result.json());
-          console.log("getErrs");
+          console.log("then separacao");
         },
           (error) => {
             resolve(error.json());
-            console.log("erro");
+            console.error(error);
           });
     });
   }
+
+
+
+
+  // getDeputados() {
+  //   return new Promise((resolve, reject) => {
+  //     let url = this.api + 'deputados';
+  //     this.http.get(url)
+  //       .toPromise()
+  //       .then((result: any) => {
+  //         resolve(result.json());
+  //       },
+  //         (error) => {
+  //           reject(error.json());
+  //         });
+  //   });
+  // }
+
+  // getDespesas(id: Number) {
+  //   return new Promise((resolve, reject) => {
+  //     let url = this.api + 'deputados/' + id + '/despesas';
+  //     this.http.get(url)
+  //       .toPromise()
+  //       .then((result: any) => {
+  //         resolve(result.json());
+  //       },
+  //         (error) => {
+  //           resolve(error.json());
+  //         });
+  //   });
+  // }
+
 
 
 

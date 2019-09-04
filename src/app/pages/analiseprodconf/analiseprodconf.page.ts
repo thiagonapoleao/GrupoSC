@@ -12,9 +12,7 @@ import { Analise } from './analise.model';
   styleUrls: ['./analiseprodconf.page.scss'],
 })
 export class AnaliseprodconfPage implements OnInit {
- 
-  analises : Analise[];
-
+  analises: Analise[];
   //replica aqui os atributos
   codigo: any;
   nome: any;
@@ -24,15 +22,13 @@ export class AnaliseprodconfPage implements OnInit {
 
   //aciona o construtor para receber dados
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
-
     this.getDados();
-
   }
 
   getDados() {
-    this.service.getAlluser().then(( result : any[]) =>{
+    this.service.getAlluser().then((result: any[]) => {
       this.analises = result['analises'];
-    }).catch((error : any) => {
+    }).catch((error: any) => {
       console.error("error: " + error);
     });
   }
