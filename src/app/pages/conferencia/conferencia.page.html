@@ -10,7 +10,7 @@
 </ion-header>
 
 
-<ion-content>
+<ion-content class="alto">
   <ion-card class="pincipal">
     <p>
       <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da Produção por
@@ -22,15 +22,19 @@
       <ion-button color="danger" class="menu">Media</ion-button>
       <ion-button color="danger" class="menu">% da Meta</ion-button>
     </ion-item>
+  </ion-card>
+</ion-content>
 
-    <p>
+<ion-content class="baixo">
+  <ion-card class="dados">
+   
       <ion-item *ngFor="let analise of analises">
         <ion-label>{{analise.nome}}</ion-label>
         <ion-button>{{analise.total}}</ion-button>
         <ion-button>{{analise.media}}</ion-button>
         <ion-button>{{analise.porcen}}</ion-button>
       </ion-item>
-    </p>
+    
 
   </ion-card>
 </ion-content>

@@ -46,11 +46,11 @@ export class DadosSCService {
       )
         .toPromise()
         .then((response) => {
-          console.log('API Response : ' + response.json());
+          console.log(response);
           resolve(response.json());
         }).catch(error => {
-          console.error('API Error : ' + error.status);
-          console.error('API Error : ' + JSON.stringify(error));
+          console.error(error.status);
+          console.error(JSON.stringify(error));
           reject(error.json());
         });
     });
