@@ -38,14 +38,13 @@ export class LoginPage implements OnInit {
   Login() {
     this.service.getLogin(this.usuario, this.senha).then((result: any[]) => {
       this.acessos = result['acessos'];
+      console.log(this.acessos);
       if (this.acessos == 1) {
-        // this.navigation = {
-        //   queryParams: {
-        //     user: user,
-        //     password: password,
-        //   }
-        // }
+        console.log(this.acessos);
         this.navCtrl.navigateBack(['home'], this.navigation);
+      }else{
+        console.log(this.usuario);
+        console.log(this.senha);
       }
       console.log("getDados");
     }).catch((error: any) => {

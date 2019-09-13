@@ -9,217 +9,226 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="pincipal">
-    <ion-card>
+<ion-content class="alto">
+  <ion-card class="pincipal">
+    <ion-item class="top">
+      <ion-label>Indicador</ion-label>
+      <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+      <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
+      <ion-button color="danger" class="menu">Real Até o Período</ion-button>
+      <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-content class="baixo">
+  <ion-card class="dados">
+    <P>
       <ion-item class="top">
-        <ion-label>Indicador</ion-label>
-        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
-        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
-        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
-        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
+        <ion-label>Quebras GMD + CRI</ion-label>
+        <ion-button>R$ {{anlQuebra.meta}}</ion-button>
+        <ion-button>R$ {{anlQuebra?.meta}}</ion-button>
+        <ion-button>R$ {{anlQuebra?.realizado}}</ion-button>
+        <ion-button>{{((anlQuebra?.realizado - anlQuebra?.meta) / anlQuebra?.meta) | number : '1.2-2' }} %</ion-button>
       </ion-item>
-
-      <P>
-        <ion-item>
-          <ion-label>Quebras GMD + CRI</ion-label>
-          <ion-button>R$ {{anlQuebra.meta}}</ion-button>
-          <ion-button>R$ {{anlQuebra?.meta}}</ion-button>
-          <ion-button>R$ {{anlQuebra?.realizado}}</ion-button>
-          <ion-button>{{((anlQuebra?.realizado - anlQuebra?.meta) / anlQuebra?.meta) | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Chegadas CD</ion-label>
-          <ion-button>{{anlChegada?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlChegada?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlChegada?.realizado * 100 }} %</ion-button>
-          <ion-button>{{(anlChegada?.realizado - anlChegada?.meta) / anlChegada?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Saídas CD</ion-label>
-          <ion-button>{{anlSaida?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlSaida?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlSaida?.realizado * 100 }} %</ion-button>
-          <ion-button>{{(anlSaida?.realizado - anlSaida?.meta) / anlSaida?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Cancelamento Total</ion-label>
-          <ion-button>{{anlCancT?.meta * 100 | number : '1.2-2'  }} %</ion-button>
-          <ion-button>{{anlCancT?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlCancT?.realizado * 100 | number : '1.2-2'  }} %</ion-button>
-          <ion-button>{{(anlCancT?.realizado - anlCancT?.meta) / anlCancT?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Cancelamento Operacional</ion-label>
-          <ion-button>{{anlCancO?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlCancO?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlCancO?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlCancO?.realizado - anlCancO?.meta) / anlCancO?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Cancelamento Comercial</ion-label>
-          <ion-button>{{anlCancC?.meta * 100 | number : '1.2-2'  }} %</ion-button>
-          <ion-button>{{anlCancC?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlCancC?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlCancC?.realizado - anlCancC?.meta) / anlCancC?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Devolução Total WEB + BO</ion-label>
-          <ion-button>{{anlDevT?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevT?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevT?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlDevT?.realizado - anlDevT?.meta) / anlDevT?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Devolução (BO Log)</ion-label>
-          <ion-button>{{anlDevLog?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevLog?.meta * 100 | number : '1.2-2'  }} %</ion-button>
-          <ion-button>{{anlDevLog?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlDevLog?.realizado - anlDevLog?.meta) / anlDevLog?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Devolução (BI Com)</ion-label>
-          <ion-button>{{anlDevCom?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevCom?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevCom?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlDevCom?.realizado - anlDevCom?.meta) / anlDevCom?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Devolução (WEB)</ion-label>
-          <ion-button>{{anlDevWeb?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevWeb?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlDevWeb?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlDevWeb?.realizado - anlDevWeb?.meta) / anlDevWeb?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Bloqueio</ion-label>
-          <ion-button>{{anlBloq?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlBloq?.meta * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{anlBloq?.realizado * 100 | number : '1.2-2' }} %</ion-button>
-          <ion-button>{{(anlBloq?.realizado - anlBloq?.meta) / anlBloq?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Lead Time Interno Total (visão CD)</ion-label>
-          <ion-button>{{anlLeadTime?.meta}}</ion-button>
-          <ion-button>{{anlLeadTime?.meta}}</ion-button>
-          <ion-button>{{anlLeadTime?.realizado}}</ion-button>
-          <ion-button>{{(anlLeadTime?.realizado - anlLeadTime?.meta) / anlLeadTime?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label [routerLink]="['/upm']">UPM Separação Total</ion-label>
-          <ion-button>{{anlUpmSepTotal?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepTotal?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepTotal?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmSepTotal?.realizado - anlUpmSepTotal?.meta) / anlUpmSepTotal?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>UPM Auditoria Total</ion-label>
-          <ion-button>{{anlUpmAudTotal?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudTotal?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudTotal?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmAudTotal?.realizado - anlUpmAudTotal?.meta) / anlUpmAudTotal?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>UPM Separação Linha</ion-label>
-          <ion-button>{{anlUpmSepLinha?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepLinha?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepLinha?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmSepLinha?.realizado - anlUpmSepLinha?.meta) / anlUpmSepLinha?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>UPM Auditoria linha</ion-label>
-          <ion-button>{{anlUpmAudLinha?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudLinha?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudLinha?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmAudLinha?.realizado - anlUpmAudLinha?.meta) / anlUpmAudLinha?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>UPM Separação Psico</ion-label>
-          <ion-button>{{anlUpmSepPsico?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepPsico?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmSepPsico?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmSepPsico?.realizado - anlUpmSepPsico?.meta) / anlUpmSepPsico?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>UPM Auditoria Psico </ion-label>
-          <ion-button>{{anlUpmAudPsico?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudPsico?.meta | number : '1.0-0' }}</ion-button>
-          <ion-button>{{anlUpmAudPsico?.realizado | number : '1.0-0' }}</ion-button>
-          <ion-button>{{(anlUpmAudPsico?.realizado - anlUpmAudPsico?.meta) / anlUpmAudPsico?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Acuracidade Lote</ion-label>
-          <ion-button>{{anlAcuLote?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlAcuLote?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlAcuLote?.realizado * 100 }} %</ion-button>
-          <ion-button>{{(anlAcuLote?.realizado - anlAcuLote?.meta) / anlAcuLote?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>FEFO - Reposição Lote Antigo</ion-label>
-          <ion-button>{{anlFefo?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlFefo?.meta * 100 }} %</ion-button>
-          <ion-button>{{anlFefo?.realizado * 100 }} %</ion-button>
-          <ion-button>{{(anlFefo?.realizado - anlFefo?.meta) / anlFefo?.meta | number : '1.2-2' }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Unidades Vendidas Total</ion-label>
-          <ion-button >{{anlUnidades?.meta}}</ion-button>
-          <ion-button>{{anlUnidades?.meta}}</ion-button>
-          <ion-button>{{anlUnidades?.realizado}}</ion-button>
-          <ion-button>{{(anlUnidades?.realizado - anlUnidades?.meta) / anlUnidades?.meta }} %</ion-button>
-        </ion-item>
-      </P>
-      <P>
-        <ion-item>
-          <ion-label>Venda</ion-label>
-          <ion-button>R${{anlVenda?.meta }}</ion-button>
-          <ion-button>R${{anlVenda?.meta}}</ion-button>
-          <ion-button>R${{anlVenda?.realizado}}</ion-button>
-          <ion-button>{{(anlVenda?.realizado - anlVenda?.meta) / anlVenda?.meta  }} %</ion-button>
-        </ion-item>
-      </P>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Chegadas CD</ion-label>
+        <ion-button>{{anlChegada?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlChegada?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlChegada?.realizado * 100 }} %</ion-button>
+        <ion-button>{{(anlChegada?.realizado - anlChegada?.meta) / anlChegada?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Saídas CD</ion-label>
+        <ion-button>{{anlSaida?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlSaida?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlSaida?.realizado * 100 }} %</ion-button>
+        <ion-button>{{(anlSaida?.realizado - anlSaida?.meta) / anlSaida?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top"> 
+        <ion-label>Cancelamento Total</ion-label>
+        <ion-button>{{anlCancT?.meta * 100 | number : '1.2-2'  }} %</ion-button>
+        <ion-button>{{anlCancT?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlCancT?.realizado * 100 | number : '1.2-2'  }} %</ion-button>
+        <ion-button>{{(anlCancT?.realizado - anlCancT?.meta) / anlCancT?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Cancelamento Operacional</ion-label>
+        <ion-button>{{anlCancO?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlCancO?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlCancO?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlCancO?.realizado - anlCancO?.meta) / anlCancO?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Cancelamento Comercial</ion-label>
+        <ion-button>{{anlCancC?.meta * 100 | number : '1.2-2'  }} %</ion-button>
+        <ion-button>{{anlCancC?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlCancC?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlCancC?.realizado - anlCancC?.meta) / anlCancC?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Devolução Total WEB + BO</ion-label>
+        <ion-button>{{anlDevT?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevT?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevT?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlDevT?.realizado - anlDevT?.meta) / anlDevT?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Devolução (BO Log)</ion-label>
+        <ion-button>{{anlDevLog?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevLog?.meta * 100 | number : '1.2-2'  }} %</ion-button>
+        <ion-button>{{anlDevLog?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlDevLog?.realizado - anlDevLog?.meta) / anlDevLog?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Devolução (BI Com)</ion-label>
+        <ion-button>{{anlDevCom?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevCom?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevCom?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlDevCom?.realizado - anlDevCom?.meta) / anlDevCom?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Devolução (WEB)</ion-label>
+        <ion-button>{{anlDevWeb?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevWeb?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlDevWeb?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlDevWeb?.realizado - anlDevWeb?.meta) / anlDevWeb?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Bloqueio</ion-label>
+        <ion-button>{{anlBloq?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlBloq?.meta * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{anlBloq?.realizado * 100 | number : '1.2-2' }} %</ion-button>
+        <ion-button>{{(anlBloq?.realizado - anlBloq?.meta) / anlBloq?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Lead Time Interno Total (visão CD)</ion-label>
+        <ion-button>{{anlLeadTime?.meta}}</ion-button>
+        <ion-button>{{anlLeadTime?.meta}}</ion-button>
+        <ion-button>{{anlLeadTime?.realizado}}</ion-button>
+        <ion-button>{{(anlLeadTime?.realizado - anlLeadTime?.meta) / anlLeadTime?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label [routerLink]="['/upm']">UPM Separação Total</ion-label>
+        <ion-button>{{anlUpmSepTotal?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepTotal?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepTotal?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmSepTotal?.realizado - anlUpmSepTotal?.meta) / anlUpmSepTotal?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>UPM Auditoria Total</ion-label>
+        <ion-button>{{anlUpmAudTotal?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudTotal?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudTotal?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmAudTotal?.realizado - anlUpmAudTotal?.meta) / anlUpmAudTotal?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>UPM Separação Linha</ion-label>
+        <ion-button>{{anlUpmSepLinha?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepLinha?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepLinha?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmSepLinha?.realizado - anlUpmSepLinha?.meta) / anlUpmSepLinha?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>UPM Auditoria linha</ion-label>
+        <ion-button>{{anlUpmAudLinha?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudLinha?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudLinha?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmAudLinha?.realizado - anlUpmAudLinha?.meta) / anlUpmAudLinha?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>UPM Separação Psico</ion-label>
+        <ion-button>{{anlUpmSepPsico?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepPsico?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmSepPsico?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmSepPsico?.realizado - anlUpmSepPsico?.meta) / anlUpmSepPsico?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top"> 
+        <ion-label>UPM Auditoria Psico </ion-label>
+        <ion-button>{{anlUpmAudPsico?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudPsico?.meta | number : '1.0-0' }}</ion-button>
+        <ion-button>{{anlUpmAudPsico?.realizado | number : '1.0-0' }}</ion-button>
+        <ion-button>{{(anlUpmAudPsico?.realizado - anlUpmAudPsico?.meta) / anlUpmAudPsico?.meta | number : '1.2-2' }} %
+        </ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Acuracidade Lote</ion-label>
+        <ion-button>{{anlAcuLote?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlAcuLote?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlAcuLote?.realizado * 100 }} %</ion-button>
+        <ion-button>{{(anlAcuLote?.realizado - anlAcuLote?.meta) / anlAcuLote?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>FEFO - Reposição Lote Antigo</ion-label>
+        <ion-button>{{anlFefo?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlFefo?.meta * 100 }} %</ion-button>
+        <ion-button>{{anlFefo?.realizado * 100 }} %</ion-button>
+        <ion-button>{{(anlFefo?.realizado - anlFefo?.meta) / anlFefo?.meta | number : '1.2-2' }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Unidades Vendidas Total</ion-label>
+        <ion-button>{{anlUnidades?.meta}}</ion-button>
+        <ion-button>{{anlUnidades?.meta}}</ion-button>
+        <ion-button>{{anlUnidades?.realizado}}</ion-button>
+        <ion-button>{{(anlUnidades?.realizado - anlUnidades?.meta) / anlUnidades?.meta }} %</ion-button>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label>Venda</ion-label>
+        <ion-button>R${{anlVenda?.meta }}</ion-button>
+        <ion-button>R${{anlVenda?.meta}}</ion-button>
+        <ion-button>R${{anlVenda?.realizado}}</ion-button>
+        <ion-button>{{(anlVenda?.realizado - anlVenda?.meta) / anlVenda?.meta  }} %</ion-button>
+      </ion-item>
+    </P>
 
 
-    </ion-card>
-  </div>
+  </ion-card> 
 </ion-content>
