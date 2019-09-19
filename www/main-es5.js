@@ -20,6 +20,10 @@ var map = {
 		"./src/app/pages/conferencia/conferencia.module.ts",
 		"pages-conferencia-conferencia-module"
 	],
+	"./pages/errseparacao/errseparacao.module": [
+		"./src/app/pages/errseparacao/errseparacao.module.ts",
+		"pages-errseparacao-errseparacao-module"
+	],
 	"./pages/home/home.module": [
 		"./src/app/pages/home/home.module.ts",
 		"pages-home-home-module"
@@ -520,6 +524,8 @@ var routes = [
     { path: 'analiseprodconf', loadChildren: './pages/analiseprodconf/analiseprodconf.module#AnaliseprodconfPageModule' },
     { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },
     { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+    { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+    { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -590,6 +596,11 @@ var AppComponent = /** @class */ (function () {
                 title: 'Produção por Conferente',
                 url: '/conferencia',
                 icon: 'conferencia'
+            },
+            {
+                title: 'Erros por separador',
+                url: '/errseparacao',
+                icon: 'errseparacao'
             }
         ];
         this.initializeApp();
@@ -715,25 +726,11 @@ var DadosSCService = /** @class */ (function () {
         //private api: String = 'https://dadosabertos.camara.leg.br/api/v2/';
         this.api = 'http://localhost';
     }
-    DadosSCService.prototype.getLogin = function () {
-    };
-    DadosSCService.prototype.getDeputados = function () {
+    DadosSCService.prototype.getAlluser = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = _this.api + 'deputados';
-            _this.http.get(url)
-                .toPromise()
-                .then(function (result) {
-                resolve(result.json());
-            }, function (error) {
-                reject(error.json());
-            });
-        });
-    };
-    DadosSCService.prototype.getDespesas = function (id) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            var url = _this.api + 'deputados/' + id + '/despesas';
+            //let url = 'http://172.20.10.6/phpp/api.php'; //laravel
+            var url = 'http://localhost/phpp/api-prodconferencia.php'; //laravel
             _this.http.get(url)
                 .toPromise()
                 .then(function (result) {
@@ -743,11 +740,33 @@ var DadosSCService = /** @class */ (function () {
             });
         });
     };
-    DadosSCService.prototype.getAlluser = function () {
+    DadosSCService.prototype.getLogin = function (usuario, senha) {
+        var _this = this;
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({
+            'Content-Type': 'application/json'
+        });
+        var options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
+        return new Promise(function (resolve, reject) {
+            _this.http.post('http://localhost/phpp/api-login.php', {
+                "user": usuario,
+                "password": senha
+            }, options)
+                .toPromise()
+                .then(function (response) {
+                console.log(response);
+                resolve(response.json());
+            }).catch(function (error) {
+                console.error(error.status);
+                console.error(JSON.stringify(error));
+                reject(error.json());
+            });
+        });
+    };
+    DadosSCService.prototype.getFarol = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = 'http://172.20.10.6/phpp/api.php'; //laravel
-            //let url = 'http://localhost/phpp/api.php'; //laravel
+            //let url = 'http://172.20.10.6/phpp/api-indicadores.php'; //laravel
+            var url = 'http://localhost/phpp/api-indicadores.php'; //laravel
             _this.http.get(url)
                 .toPromise()
                 .then(function (result) {
@@ -760,7 +779,8 @@ var DadosSCService = /** @class */ (function () {
     DadosSCService.prototype.getUpm = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            var url = 'http://localhost/phpp/api-upm.php'; //laravel
             _this.http.get(url)
                 .toPromise()
                 .then(function (result) {
@@ -769,6 +789,22 @@ var DadosSCService = /** @class */ (function () {
             }, function (error) {
                 resolve(error.json());
                 console.log("erro");
+            });
+        });
+    };
+    DadosSCService.prototype.getErrseparacao = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            //let url = 'http://172.20.10.6/phpp/errseparacao.php'; //laravel
+            var url = 'http://localhost/phpp/api-errseparacao.php'; //laravel
+            _this.http.get(url)
+                .toPromise()
+                .then(function (result) {
+                resolve(result.json());
+                console.log("then separacao");
+            }, function (error) {
+                resolve(error.json());
+                console.error(error);
             });
         });
     };

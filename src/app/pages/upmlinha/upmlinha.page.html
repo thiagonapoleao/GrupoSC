@@ -1,47 +1,39 @@
-<ion-content [scrollEvents]="true" (ionScrollStart)="logScrollStart()" (ionScroll)="logScrolling($event)"
-  (ionScrollEnd)="logScrollEnd()">
+<ion-header color="secondary">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span>Indicadores GrupoSC</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-header >
-      <ion-toolbar color="secondary">
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
-          <ion-title>
-              <span>Indicadores GrupoSC</span>
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
+<ion-content>
+  <ion-card class="pincipal">
+    <p>
+      <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da UPM
+      </ion-card-subtitle>
+    </p>
+    <ion-item class="top">
+      <ion-label>UPM</ion-label>
+      <ion-button color="danger" class="menu">Meta Mensal</ion-button>
+      <ion-button color="danger" class="menu">UPM</ion-button>
+      <ion-button color="danger" class="menu">Erros</ion-button>
+      <ion-button color="danger" class="menu">Qt Conf.</ion-button>
+    </ion-item>
+    <P>
+      <p>
+        <ion-item *ngFor="let upm of upms">
+          <ion-label>{{upm.tipo}}</ion-label>
+          <ion-button>{{upm.meta}}</ion-button>
+          <ion-button>{{upm.upm}}</ion-button>
+          <ion-button>{{upm.erros}}</ion-button>
+          <ion-button>{{upm.conferencia}}</ion-button>
+        </ion-item>
 
-  <div class="pincipal">
-    <ion-slides>
-      <ion-slide>      
-      </ion-slide>
-    </ion-slides>
-
-    <ion-card>
-      <ion-item class="top">
-        <ion-label>Indicador</ion-label>
-        <ion-button color="danger" class="menu">Meta Mensal</ion-button>
-        <ion-button color="danger" class="menu">Meta Até o Período</ion-button>
-        <ion-button color="danger" class="menu">Real Até o Período</ion-button>
-        <ion-button color="danger" class="menu">VAR% até o Período</ion-button>
-      </ion-item>
-      <P>
-
-
-        <P>
-          <ion-item>
-            <ion-label>UPM Total</ion-label>
-            <ion-button>900</ion-button>
-            <ion-button>900</ion-button>
-            <ion-button>1300</ion-button>
-            <ion-button>1300</ion-button>
-          </ion-item>
-        </P>
-
-
-
-    </ion-card>
-
-  </div>
+      </p>
+  </ion-card>  
+    
+ 
 </ion-content>

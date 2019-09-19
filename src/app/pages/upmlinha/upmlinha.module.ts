@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { UpmlinhaPage } from './upmlinha.page';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -18,7 +19,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    IonicModule,    
     RouterModule.forChild(routes)
   ],
   declarations: [UpmlinhaPage]

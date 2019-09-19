@@ -31,6 +31,11 @@ export class AppComponent {
       title: 'Erros por separador',
       url: '/errseparacao',
       icon: 'errseparacao'
+    },
+    {
+      title: 'UPM Linha',
+      url: '/upmlinha',
+      icon: 'upmlinha'
     }
   ];
 

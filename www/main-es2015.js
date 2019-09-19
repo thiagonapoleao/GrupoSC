@@ -20,6 +20,10 @@ var map = {
 		"./src/app/pages/conferencia/conferencia.module.ts",
 		"pages-conferencia-conferencia-module"
 	],
+	"./pages/errseparacao/errseparacao.module": [
+		"./src/app/pages/errseparacao/errseparacao.module.ts",
+		"pages-errseparacao-errseparacao-module"
+	],
 	"./pages/home/home.module": [
 		"./src/app/pages/home/home.module.ts",
 		"pages-home-home-module"
@@ -514,6 +518,8 @@ const routes = [
     { path: 'analiseprodconf', loadChildren: './pages/analiseprodconf/analiseprodconf.module#AnaliseprodconfPageModule' },
     { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },
     { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+    { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
+    { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -581,6 +587,11 @@ let AppComponent = class AppComponent {
                 title: 'Produção por Conferente',
                 url: '/conferencia',
                 icon: 'conferencia'
+            },
+            {
+                title: 'Erros por separador',
+                url: '/errseparacao',
+                icon: 'errseparacao'
             }
         ];
         this.initializeApp();
@@ -701,23 +712,10 @@ let DadosSCService = class DadosSCService {
         //private api: String = 'https://dadosabertos.camara.leg.br/api/v2/';
         this.api = 'http://localhost';
     }
-    getLogin() {
-    }
-    getDeputados() {
+    getAlluser() {
         return new Promise((resolve, reject) => {
-            let url = this.api + 'deputados';
-            this.http.get(url)
-                .toPromise()
-                .then((result) => {
-                resolve(result.json());
-            }, (error) => {
-                reject(error.json());
-            });
-        });
-    }
-    getDespesas(id) {
-        return new Promise((resolve, reject) => {
-            let url = this.api + 'deputados/' + id + '/despesas';
+            //let url = 'http://172.20.10.6/phpp/api.php'; //laravel
+            let url = 'http://localhost/phpp/api-prodconferencia.php'; //laravel
             this.http.get(url)
                 .toPromise()
                 .then((result) => {
@@ -727,10 +725,31 @@ let DadosSCService = class DadosSCService {
             });
         });
     }
-    getAlluser() {
+    getLogin(usuario, senha) {
+        let headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({
+            'Content-Type': 'application/json'
+        });
+        let options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
         return new Promise((resolve, reject) => {
-            let url = 'http://172.20.10.6/phpp/api.php'; //laravel
-            //let url = 'http://localhost/phpp/api.php'; //laravel
+            this.http.post('http://localhost/phpp/api-login.php', {
+                "user": usuario,
+                "password": senha
+            }, options)
+                .toPromise()
+                .then((response) => {
+                console.log(response);
+                resolve(response.json());
+            }).catch(error => {
+                console.error(error.status);
+                console.error(JSON.stringify(error));
+                reject(error.json());
+            });
+        });
+    }
+    getFarol() {
+        return new Promise((resolve, reject) => {
+            //let url = 'http://172.20.10.6/phpp/api-indicadores.php'; //laravel
+            let url = 'http://localhost/phpp/api-indicadores.php'; //laravel
             this.http.get(url)
                 .toPromise()
                 .then((result) => {
@@ -742,7 +761,8 @@ let DadosSCService = class DadosSCService {
     }
     getUpm() {
         return new Promise((resolve, reject) => {
-            let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            let url = 'http://localhost/phpp/api-upm.php'; //laravel
             this.http.get(url)
                 .toPromise()
                 .then((result) => {
@@ -751,6 +771,21 @@ let DadosSCService = class DadosSCService {
             }, (error) => {
                 resolve(error.json());
                 console.log("erro");
+            });
+        });
+    }
+    getErrseparacao() {
+        return new Promise((resolve, reject) => {
+            //let url = 'http://172.20.10.6/phpp/errseparacao.php'; //laravel
+            let url = 'http://localhost/phpp/api-errseparacao.php'; //laravel
+            this.http.get(url)
+                .toPromise()
+                .then((result) => {
+                resolve(result.json());
+                console.log("then separacao");
+            }, (error) => {
+                resolve(error.json());
+                console.error(error);
             });
         });
     }

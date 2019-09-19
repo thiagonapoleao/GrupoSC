@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-content>\r\n  <div class=\"pincipal\">\r\n\r\n    <ion-segment (ionChange)=\"segmentChanged($event)\" mode=\"ios\" value=\"login\">\r\n          <ion-segment-button value=\"login\">\r\n            <ion-label class=\"segment\">Login</ion-label>\r\n          </ion-segment-button>\r\n          <ion-segment-button value=\"register\">\r\n            <ion-label class=\"segment\"> Cadastro</ion-label>\r\n          </ion-segment-button>\r\n        </ion-segment>\r\n\r\n    <ion-slides>\r\n      <ion-slide>\r\n        <div class=\"slide-inner ion-padding\">\r\n          <span>Login</span>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"email\" placeholder=\"E-mail\"></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"password\" placeholder=\"Senha\"></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-button class=\"ion-margin-top\" (click)=\"Login()\" color=\"light\" expand=\"block\">Entrar</ion-button>\r\n        </div>\r\n      </ion-slide>\r\n\r\n      <ion-slide>\r\n        <div class=\"slide-inner ion-padding\">\r\n          <span>Cadastro</span>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"text\" placeholder=\"Nome\"></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"email\" placeholder=\"E-mail\"></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"password\" placeholder=\"Senha\"></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-button class=\"ion-margin-top\" (click)=\"register()\" color=\"light\" expand=\"block\">Cadastrar</ion-button>\r\n        </div>\r\n      </ion-slide>\r\n    </ion-slides>\r\n  </div>\r\n</ion-content>"
+module.exports = "<ion-content>\r\n  <div class=\"pincipal\">\r\n\r\n    \r\n    <ion-slides>\r\n      <ion-slide>\r\n        <div class=\"slide-inner ion-padding\">\r\n          <span>Login</span>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"text\" name =\"usuario\" placeholder=\"usuario\" [(ngModel)]=usuario></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-item class=\"ion-margin-top\" lines=\"none\">\r\n            <ion-input type=\"password\" name = \"senha\" placeholder=\"Senha\" [(ngModel)]=senha></ion-input>\r\n          </ion-item>\r\n\r\n          <ion-button class=\"ion-margin-top\" (click)=\"Login()\" color=\"light\" expand=\"block\">Entrar</ion-button>\r\n        </div>\r\n      </ion-slide>\r\n\r\n     \r\n    </ion-slides>\r\n  </div>\r\n</ion-content>"
 
 /***/ }),
 
@@ -86,26 +86,44 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
-/* harmony import */ var _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic-native/keyboard/ngx */ "./node_modules/@ionic-native/keyboard/ngx/index.js");
+/* harmony import */ var _services_dados_sc_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/dados-sc.service */ "./src/app/pages/services/dados-sc.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 
 
 
+
+
+//import da lib responsavel pelo recebimeto de parametros
 
 var LoginPage = /** @class */ (function () {
-    function LoginPage(keyboard) {
-        this.keyboard = keyboard;
+    function LoginPage(navCtrl, service, route) {
+        this.navCtrl = navCtrl;
+        this.service = service;
+        this.route = route;
     }
     LoginPage.prototype.ngOnInit = function () { };
-    LoginPage.prototype.segmentChanged = function (event) {
-        if (event.detail.value === 'login') {
-            this.slides.slidePrev();
-        }
-        else {
-            this.slides.slideNext();
-        }
+    LoginPage.prototype.Login = function () {
+        var _this = this;
+        this.service.getLogin(this.usuario, this.senha).then(function (result) {
+            _this.acessos = result['acessos'];
+            console.log(_this.acessos);
+            if (_this.acessos == 1) {
+                console.log(_this.acessos);
+                _this.navCtrl.navigateBack(['home'], _this.navigation);
+            }
+            else {
+                console.log(_this.usuario);
+                console.log(_this.senha);
+            }
+            console.log("getDados");
+        }).catch(function (error) {
+            console.error("error: " + error);
+        });
     };
     LoginPage.ctorParameters = function () { return [
-        { type: _ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_3__["Keyboard"] }
+        { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"] },
+        { type: _services_dados_sc_service__WEBPACK_IMPORTED_MODULE_3__["DadosSCService"] },
+        { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
     ]; };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonSlides"], { static: false }),
@@ -117,7 +135,7 @@ var LoginPage = /** @class */ (function () {
             template: __webpack_require__(/*! raw-loader!./login.page.html */ "./node_modules/raw-loader/index.js!./src/app/pages/login/login.page.html"),
             styles: [__webpack_require__(/*! ./login.page.scss */ "./src/app/pages/login/login.page.scss")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_keyboard_ngx__WEBPACK_IMPORTED_MODULE_3__["Keyboard"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["NavController"], _services_dados_sc_service__WEBPACK_IMPORTED_MODULE_3__["DadosSCService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]])
     ], LoginPage);
     return LoginPage;
 }());
