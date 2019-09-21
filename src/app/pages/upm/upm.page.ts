@@ -3,6 +3,7 @@ import { DadosSCService } from '../services/dados-sc.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { Upm } from './upm.model';
+import { Hora } from './upm.model';
 import chartJs from 'chart.js';
 
 
@@ -23,7 +24,16 @@ export class UpmPage implements OnInit {
   data: any;
   hora: any;
 
+  upmh: Hora[];
+  confT: any;
+  errosT: any;
+  difErros: any;
+  horasG: any;
+  horasD: any;
+
+
   @ViewChild('barCanvas', { static: false }) barCanvas;
+  @ViewChild('barCanvas', { static: false }) barCanvas1;
   @ViewChild('lineCanvas', { static: false }) lineCanvas;
   @ViewChild('pieCanvas', { static: false }) pieCanvas;
   @ViewChild('doughnutCanvas', { static: false }) doughnutCanvas;
@@ -38,6 +48,7 @@ export class UpmPage implements OnInit {
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
     this.getDados();
+    this.getDadosUpm();
   }
 
 
@@ -49,17 +60,27 @@ export class UpmPage implements OnInit {
     });
   }
 
+  getDadosUpm() {
+    this.service.getUpmhr().then((result: any[]) => {
+      this.upmh = result['upmh'];
+      console.log(this.upmh);
+    }).catch((error: any) => {
+      console.error("error: " + error);
+    });
+  }
+
   ngOnInit() {
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.barCanvas = this.getBarChart();
+      this.barCanvas1 = this.getBarChart1();
       //this.lineChart = this.getLineChart();
     }, 150)
     setTimeout(() => {
-     // this.pieCanvas = this.getPieChart();
-     // this.doughnutChart = this.getDoughnutChart();
+      // this.pieCanvas = this.getPieChart();
+      // this.doughnutChart = this.getDoughnutChart();
     }, 250)
   }
 
@@ -74,22 +95,60 @@ export class UpmPage implements OnInit {
 
 
   getBarChart() {
-    console.log(this.upms);
+    console.log(this.upmh);
+    type: 'bar'
     const data = {
-      labels: [this.upms[0]['tipo'], this.upms[1]['tipo'], this.upms[2]['tipo']],
+      labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD'], this.upmh[3]['horasD'], this.upmh[4]['horasD'], this.upmh[5]['horasD'], this.upmh[6]['horasD'], this.upmh[7]['horasD'], this.upmh[8]['horasD'], this.upmh[9]['horasD']],
       datasets: [{
-        label: 'UPM',
-        data: [this.upms[0].upm , this.upms[1].upm, this.upms[2].upm],
+        label: 'Erros Por Hora',
+        data: [this.upmh[0].difErros, this.upmh[1].difErros, this.upmh[2].difErros, this.upmh[3].difErros, this.upmh[4].difErros, this.upmh[5].difErros, this.upmh[6].difErros, this.upmh[7].difErros, this.upmh[8].difErros, this.upmh[9].difErros],
         backgroundColor: [
-          'rgb(255, 0, 0)',
-          'rgb(20, 0, 255)',
-          'rgb(255, 230, 0)',
-        ],            
-        borderWidth: 5
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+        ],
+
       }]
     };
 
     const options = {
+      responsive: true,
+      tooltips: {
+        enabled: false
+      },
+      animation: {
+        onComplete: function () {
+          var ctx = this.chart.ctx;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var chart = this;
+          var datasets = this.config.data.datasets;
+
+          datasets.forEach(function (dataset: Array<any>, i: number) {
+            ctx.font = "10px Arial";
+
+
+            ctx.fillStyle = "Black";
+            chart.getDatasetMeta(i).data.forEach(function (p: any, j: any) {
+              ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+            });
+
+          });
+        }
+      },
+      legend: {
+        display: true,
+        labels: {
+          fontColor: 'rgb(18, 34, 70)'
+        }
+      },
       scales: {
         yAxes: [{
           ticks: {
@@ -101,6 +160,72 @@ export class UpmPage implements OnInit {
     return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
   }
 
+
+  getBarChart1() {
+    console.log(this.upmh);
+    type: 'bar'
+    const data = {
+      labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD'], this.upmh[3]['horasD'], this.upmh[4]['horasD'], this.upmh[5]['horasD'], this.upmh[6]['horasD'], this.upmh[7]['horasD'], this.upmh[8]['horasD'], this.upmh[9]['horasD']],
+      datasets: [{
+        label: 'Erros Por Hora',
+        data: [this.upmh[0].upm, this.upmh[1].upm, this.upmh[2].upm, this.upmh[3].upm, this.upmh[4].upm, this.upmh[5].upm, this.upmh[6].upm, this.upmh[7].upm, this.upmh[8].upm, this.upmh[9].upm],
+        backgroundColor: [
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+          'rgb(18, 34, 70)',
+        ],
+
+      }]
+    };
+
+    const options = {
+      responsive: true,
+      tooltips: {
+        enabled: false
+      },
+      animation: {
+        onComplete: function () {
+          var ctx = this.chart.ctx;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var chart = this;
+          var datasets = this.config.data.datasets;
+
+          datasets.forEach(function (dataset: Array<any>, i: number) {
+            ctx.font = "10px Arial";
+
+
+            ctx.fillStyle = "Black";
+            chart.getDatasetMeta(i).data.forEach(function (p: any, j: any) {
+              ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+            });
+
+          });
+        }
+      },
+      legend: {
+        display: true,
+        labels: {
+          fontColor: 'rgb(18, 34, 70)'
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+    return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
+  }
   // getLineChart() {
   //   const data = {
   //     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],

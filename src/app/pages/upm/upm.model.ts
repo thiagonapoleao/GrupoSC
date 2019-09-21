@@ -10,3 +10,15 @@ export class Upm {
     hora: String;
   
 }
+
+export class Hora {
+
+    id: number;
+    confT: number;
+    errosT: number;
+    upm: number;
+    difErros: number;
+    horasG: string;
+    horasD: String;
+  
+}
