@@ -3,10 +3,10 @@ import { DecimalPipe } from '@angular/common';
 export class Analise {
 
     id: number;
-    indicador: string;
+    indicador: String;
     indicadores: String;
     meta: number;
     realizado: number;
-    hora: string;
+    hora: String;
 
 }

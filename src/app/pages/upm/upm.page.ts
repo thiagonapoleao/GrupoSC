@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DadosSCService } from '../services/dados-sc.service';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-import { Upm } from './upm.model';
-import { Hora } from './upm.model';
+import { Upm, Hora, Uestacao } from './upm.model';
+
 import chartJs from 'chart.js';
 
 
@@ -31,12 +31,27 @@ export class UpmPage implements OnInit {
   horasG: any;
   horasD: any;
 
+  estacoes: Uestacao[];
+  estacao: any;
+  t_prod: any;
+  qtd_cnf: any;
+  falta_epm: any;
+  falta_upm: any;
+  sobra_epm: any;
+  sobra_upm: any;
+  troca_epm: any;
+  troca_upm: any;
+  erro_conf_epm: any;
+  erro_conf_upm: any;
+  trava_valid_epm: any;
+  trava_valid_upm: any;
 
   @ViewChild('barCanvas', { static: false }) barCanvas;
-  @ViewChild('barCanvas', { static: false }) barCanvas1;
-  @ViewChild('lineCanvas', { static: false }) lineCanvas;
-  @ViewChild('pieCanvas', { static: false }) pieCanvas;
-  @ViewChild('doughnutCanvas', { static: false }) doughnutCanvas;
+  @ViewChild('barCanvas2', { static: false }) barCanvas2;
+  @ViewChild('barCanvas3', { static: false }) barCanvas3;
+  // @ViewChild('lineCanvas', { static: false }) lineCanvas;
+  // @ViewChild('pieCanvas', { static: false }) pieCanvas;
+  // @ViewChild('doughnutCanvas', { static: false }) doughnutCanvas;
 
   barChart: any;
   lineChart: any;
@@ -47,8 +62,13 @@ export class UpmPage implements OnInit {
 
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
+    this.buscaDados();
+  }
+
+  buscaDados() {
     this.getDados();
     this.getDadosUpm();
+    this.getDadosEstacao();
   }
 
 
@@ -63,25 +83,39 @@ export class UpmPage implements OnInit {
   getDadosUpm() {
     this.service.getUpmhr().then((result: any[]) => {
       this.upmh = result['upmh'];
-      console.log(this.upmh);
+      //console.log(this.upmh);
     }).catch((error: any) => {
       console.error("error: " + error);
     });
   }
 
+  getDadosEstacao() {
+    this.service.getEstacao().then((result: any[]) => {
+      this.estacoes = result['estacoes'];
+      console.log(this.estacoes);
+    }).catch((error: any) => {
+      console.error("error: " + error);
+    });
+  }
+
+
   ngOnInit() {
+    setInterval(() => {
+      this.buscaDados();
+      this.barCanvas = this.getBarChart();
+      this.barCanvas2 = this.getBarChart2();
+      this.barCanvas3 = this.getBarChart3();
+      //this.barCanvas1 = this.getBarChart1();
+      //this.lineChart = this.getLineChart();
+    }, 9000)
+    // setTimeout(() => {
+    //   // this.pieCanvas = this.getPieChart();
+    //   // this.doughnutChart = this.getDoughnutChart();
+    // }, 3000)
   }
 
   ngAfterViewInit() {
-    setTimeout(() => {
-      this.barCanvas = this.getBarChart();
-      this.barCanvas1 = this.getBarChart1();
-      //this.lineChart = this.getLineChart();
-    }, 150)
-    setTimeout(() => {
-      // this.pieCanvas = this.getPieChart();
-      // this.doughnutChart = this.getDoughnutChart();
-    }, 250)
+
   }
 
 
@@ -95,26 +129,29 @@ export class UpmPage implements OnInit {
 
 
   getBarChart() {
-    console.log(this.upmh);
+    //console.log(this.upmh);
     type: 'bar'
+    let rotulos: any[] = [];
+    let dados: any[] = [];
+    let cores: any[] = [];
+    for (let upmh of this.upmh) {
+      rotulos.push(upmh.horasD);
+      dados.push(upmh.difErros);
+      cores.push('rgb(18, 34, 70)');
+    }
     const data = {
-      labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD'], this.upmh[3]['horasD'], this.upmh[4]['horasD'], this.upmh[5]['horasD'], this.upmh[6]['horasD'], this.upmh[7]['horasD'], this.upmh[8]['horasD'], this.upmh[9]['horasD']],
+      //labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD']],
+      labels: rotulos,
       datasets: [{
         label: 'Erros Por Hora',
-        data: [this.upmh[0].difErros, this.upmh[1].difErros, this.upmh[2].difErros, this.upmh[3].difErros, this.upmh[4].difErros, this.upmh[5].difErros, this.upmh[6].difErros, this.upmh[7].difErros, this.upmh[8].difErros, this.upmh[9].difErros],
-        backgroundColor: [
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-        ],
-
+        //data: [this.upmh[0].difErros, this.upmh[1].difErros, this.upmh[2].difErros],
+        data: dados,
+        // backgroundColor: [
+        //   'rgb(18, 34, 70)',
+        //   'rgb(18, 34, 70)',
+        //   'rgb(18, 34, 70)',      
+        // ],
+        backgroundColor: cores,
       }]
     };
 
@@ -133,8 +170,6 @@ export class UpmPage implements OnInit {
 
           datasets.forEach(function (dataset: Array<any>, i: number) {
             ctx.font = "10px Arial";
-
-
             ctx.fillStyle = "Black";
             chart.getDatasetMeta(i).data.forEach(function (p: any, j: any) {
               ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
@@ -161,27 +196,23 @@ export class UpmPage implements OnInit {
   }
 
 
-  getBarChart1() {
-    console.log(this.upmh);
+  getBarChart2() {
+    //console.log(this.upmh);
     type: 'bar'
+    let rotulos: any[] = [];
+    let dados: any[] = [];
+    let cores: any[] = [];
+    for (let upmh of this.upmh) {
+      rotulos.push(upmh.horasD);
+      dados.push(upmh.upm);
+      cores.push('rgb(18, 34, 70)');
+    }
     const data = {
-      labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD'], this.upmh[3]['horasD'], this.upmh[4]['horasD'], this.upmh[5]['horasD'], this.upmh[6]['horasD'], this.upmh[7]['horasD'], this.upmh[8]['horasD'], this.upmh[9]['horasD']],
+      labels: rotulos,
       datasets: [{
-        label: 'Erros Por Hora',
-        data: [this.upmh[0].upm, this.upmh[1].upm, this.upmh[2].upm, this.upmh[3].upm, this.upmh[4].upm, this.upmh[5].upm, this.upmh[6].upm, this.upmh[7].upm, this.upmh[8].upm, this.upmh[9].upm],
-        backgroundColor: [
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-          'rgb(18, 34, 70)',
-        ],
-
+        label: 'UPM',
+        data: dados,
+        backgroundColor: cores,
       }]
     };
 
@@ -200,8 +231,6 @@ export class UpmPage implements OnInit {
 
           datasets.forEach(function (dataset: Array<any>, i: number) {
             ctx.font = "10px Arial";
-
-
             ctx.fillStyle = "Black";
             chart.getDatasetMeta(i).data.forEach(function (p: any, j: any) {
               ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
@@ -224,8 +253,70 @@ export class UpmPage implements OnInit {
         }]
       }
     }
-    return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
+    return this.getChart(this.barCanvas2.nativeElement, 'bar', data, options);
   }
+
+  getBarChart3() {
+    console.log(this.estacoes);
+    type: 'bar'
+    let rotulos: any[] = [];
+    let dados: any[] = [];
+    let cores: any[] = [];
+    for (let estacoes of this.estacoes) {
+      rotulos.push(estacoes.estacao);
+      dados.push(estacoes.troca_upm);
+      cores.push('rgb(18, 34, 70)');
+    }
+    const data = {
+      labels: rotulos,
+      datasets: [{
+        label: 'Erros por Estacão',
+        data: dados,
+        backgroundColor: cores,
+      }]
+    };
+
+    const options = {
+      responsive: true,
+      tooltips: {
+        enabled: false
+      },
+      animation: {
+        onComplete: function () {
+          var ctx = this.chart.ctx;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          var chart = this;
+          var datasets = this.config.data.datasets;
+
+          datasets.forEach(function (dataset: Array<any>, i: number) {
+            ctx.font = "10px Arial";
+            ctx.fillStyle = "Black";
+            chart.getDatasetMeta(i).data.forEach(function (p: any, j: any) {
+              ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+            });
+
+          });
+        }
+      },
+      legend: {
+        display: true,
+        labels: {
+          fontColor: 'rgb(18, 34, 70)'
+        }
+      },
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+    return this.getChart(this.barCanvas3.nativeElement, 'bar', data, options);
+  }
+
+
   // getLineChart() {
   //   const data = {
   //     labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril'],
