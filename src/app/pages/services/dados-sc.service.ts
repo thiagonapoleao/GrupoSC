@@ -31,6 +31,32 @@ export class DadosSCService {
     });
   }
 
+
+  
+  getFechamento(){
+    let headers = new Headers(
+      {
+        'Content-Type': 'application/json'
+      });
+    let options = new RequestOptions({ headers: headers });
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost/phpp/api-fechamento.php',
+        options
+      )
+        .toPromise()
+        .then((response) => {
+          console.log(response);
+          resolve(response.json());
+        }).catch(error => {
+          console.error(error.status);
+          console.error(JSON.stringify(error));
+          reject(error.json());
+        });
+    });
+  }
+
+
+
   getLogin(usuario: String, senha: String) {
     let headers = new Headers(
       {

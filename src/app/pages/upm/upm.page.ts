@@ -32,19 +32,8 @@ export class UpmPage implements OnInit {
   horasD: any;
 
   estacoes: Uestacao[];
-  estacao: any;
-  t_prod: any;
-  qtd_cnf: any;
-  falta_epm: any;
-  falta_upm: any;
-  sobra_epm: any;
-  sobra_upm: any;
-  troca_epm: any;
-  troca_upm: any;
-  erro_conf_epm: any;
-  erro_conf_upm: any;
-  trava_valid_epm: any;
-  trava_valid_upm: any;
+  soma : number[] = [];
+
 
   @ViewChild('barCanvas', { static: false }) barCanvas;
   @ViewChild('barCanvas2', { static: false }) barCanvas2;
@@ -74,7 +63,7 @@ export class UpmPage implements OnInit {
 
   getDados() {
     this.service.getUpm().then((result: any[]) => {
-      this.upms = result['upms'];
+      this.upms = result['upms']; // result['upms'] equivalente ao Jout da api php..
     }).catch((error: any) => {
       console.error("error: " + error);
     });
@@ -82,7 +71,7 @@ export class UpmPage implements OnInit {
 
   getDadosUpm() {
     this.service.getUpmhr().then((result: any[]) => {
-      this.upmh = result['upmh'];
+      this.upmh = result['upmh']; // result['upmh'] equivalente ao Jout da api php..
       //console.log(this.upmh);
     }).catch((error: any) => {
       console.error("error: " + error);
@@ -91,8 +80,11 @@ export class UpmPage implements OnInit {
 
   getDadosEstacao() {
     this.service.getEstacao().then((result: any[]) => {
-      this.estacoes = result['estacoes'];
-      console.log(this.estacoes);
+      this.estacoes = result['erroestacao']; // result['erroestacao'] equivalente ao Jout da api php..
+     // console.log("Erro por estaçãp: " + this.estacoes);
+     for(let estacao of this.estacoes){
+      this.soma.push( parseInt(estacao.falta_upm) + parseInt(estacao.sobra_upm) + parseInt(estacao.troca_upm) + parseInt(estacao.erro_conf_upm));
+     }
     }).catch((error: any) => {
       console.error("error: " + error);
     });
@@ -107,7 +99,7 @@ export class UpmPage implements OnInit {
       this.barCanvas3 = this.getBarChart3();
       //this.barCanvas1 = this.getBarChart1();
       //this.lineChart = this.getLineChart();
-    }, 9000)
+    }, 3000)
     // setTimeout(() => {
     //   // this.pieCanvas = this.getPieChart();
     //   // this.doughnutChart = this.getDoughnutChart();
@@ -256,8 +248,9 @@ export class UpmPage implements OnInit {
     return this.getChart(this.barCanvas2.nativeElement, 'bar', data, options);
   }
 
+
   getBarChart3() {
-    console.log(this.estacoes);
+    //console.log(this.upmh);
     type: 'bar'
     let rotulos: any[] = [];
     let dados: any[] = [];
@@ -270,8 +263,8 @@ export class UpmPage implements OnInit {
     const data = {
       labels: rotulos,
       datasets: [{
-        label: 'Erros por Estacão',
-        data: dados,
+        label: 'Erros por Estações',
+        data: this.soma,
         backgroundColor: cores,
       }]
     };
@@ -315,7 +308,6 @@ export class UpmPage implements OnInit {
     }
     return this.getChart(this.barCanvas3.nativeElement, 'bar', data, options);
   }
-
 
   // getLineChart() {
   //   const data = {

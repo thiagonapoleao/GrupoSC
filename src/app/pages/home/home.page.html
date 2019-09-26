@@ -216,7 +216,7 @@
         <ion-button>{{anlUnidades?.meta}}</ion-button>
         <ion-button>{{anlUnidades?.meta}}</ion-button>
         <ion-button>{{anlUnidades?.realizado}}</ion-button>
-        <ion-button>{{(anlUnidades?.realizado - anlUnidades?.meta) / anlUnidades?.meta }} %</ion-button>
+        <ion-button>{{(anlUnidades?.realizado - anlUnidades?.meta) / anlUnidades?.meta | number : '1.2-2' }} %</ion-button>
       </ion-item>
     </P>
     <P>
@@ -225,9 +225,10 @@
         <ion-button>R${{anlVenda?.meta }}</ion-button>
         <ion-button>R${{anlVenda?.meta}}</ion-button>
         <ion-button>R${{anlVenda?.realizado}}</ion-button>
-        <ion-button>{{(anlVenda?.realizado - anlVenda?.meta) / anlVenda?.meta  }} %</ion-button>
+        <ion-button>{{(anlVenda?.realizado - anlVenda?.meta) / anlVenda?.meta | number : '1.2-2' }} %</ion-button>
       </ion-item>
     </P>
+    <p></p>
 
 
   </ion-card> 

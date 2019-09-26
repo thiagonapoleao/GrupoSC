@@ -33,9 +33,9 @@ export class AppComponent {
       icon: 'errseparacao'
     },
     {
-      title: 'UPM Linha',
-      url: '/upmlinha',
-      icon: 'upmlinha'
+      title: 'Fechamento Operacional',
+      url: '/fechamento',
+      icon: 'fechamento'
     }
   ];
 

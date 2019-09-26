@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'api', loadChildren: './pages/api/api.module#ApiPageModule' },
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
-  { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
+  { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },  { path: 'fechamento', loadChildren: './pages/fechamento/fechamento.module#FechamentoPageModule' },
+
 
 
 
