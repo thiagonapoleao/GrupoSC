@@ -1,5 +1,5 @@
-<ion-header color="secondary">
-  <ion-toolbar color="secondary">
+<ion-header color="tertiary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -24,9 +24,6 @@
       <ion-button color="danger" class="menu">Qt Conf.</ion-button>
     </ion-item>
   </ion-card>
-</ion-content>
-
-<ion-content class="baixo">
   <ion-card class="dados">
     <ion-item *ngFor="let upm of upms">
       <ion-label>{{upm.tipo}}</ion-label>
@@ -36,6 +33,9 @@
       <ion-button>{{upm.conferencia | number : '1.0-0' }}</ion-button>
     </ion-item>
   </ion-card>
+</ion-content>
+
+<ion-content class="baixo">
   <ion-card class="grafico">
     <ion-card-header>
     </ion-card-header>

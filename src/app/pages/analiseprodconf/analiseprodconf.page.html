@@ -1,44 +1,45 @@
-<ion-content>
+<ion-header color="tertiary">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span>Indicadores GrupoSC</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-header color="secondary">
-    <ion-toolbar color="secondary">
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        <span>Indicadores GrupoSC</span>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="alto">
+  <ion-card>
+    <p>
+      <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da Produção por
+        Conferente</ion-card-subtitle>
+    </p>
+  </ion-card>
+</ion-content>
 
-  <div class="pincipal"> 
+<ion-content class="baixo">
+  <div class="pincipal">
 
-    <ion-card >
-      <ion-card-header>
-        <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px" >Analise da Produção por Conferente.</ion-card-subtitle>
-      </ion-card-header>
+    <ion-card>
       <ion-list *ngFor="let analise of analises">
         <ion-item>
           <!-- <ion-icon name="nome" slot="start"></ion-icon> -->
           <ion-card-content>{{analise.nome}}</ion-card-content>
         </ion-item>
-        <ion-item>         
+        <ion-item>
           <ion-label>Total Conferido</ion-label>
           <ion-card-content>{{analise.total}}</ion-card-content>
         </ion-item>
-        <ion-item>          
+        <ion-item>
           <ion-label>Media</ion-label>
           <ion-card-content>{{analise.media}}</ion-card-content>
         </ion-item>
-        <ion-item>         
+        <ion-item>
           <ion-label>Porcentagem</ion-label>
           <ion-card-content>{{analise.porcen}}</ion-card-content>
         </ion-item>
-        
       </ion-list>
-
-
     </ion-card>
   </div>
-
 </ion-content>

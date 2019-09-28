@@ -19,7 +19,7 @@ export class FechamentoPage implements OnInit {
   
 
   //replica aqui os atributos
-  fecha : Fechamento[];
+  fechamentos : Fechamento[];
   data: any;
   captacao_total: any;
   captacao_comercial: any;
@@ -45,13 +45,22 @@ export class FechamentoPage implements OnInit {
   }
 
   Fechamento() {
-    this.service.getFechamento().then((result: any[]) => {
-      this.fecha = result['fechamento'];     
+    this.service.getFechamento(this.data, this.captacao_total, this.captacao_comercial, this.linha, this.psico, this.pedido_grande_unidades, this.pedido_grande_volumes, this.inicio_linha, this.falta_inicio_linha, this.conferencia, this.falta_conferencia, this.termino_linha, this.termino_conferencia, this.rede762, this.rede766, this.rede790).then((result: any[]) => {
+      this.fechamentos = result['fecha'];     
       console.log("getFechamento");
     }).catch((error: any) => {
       console.error("error: " + error);
     });
   }
+
+  // Fechamento() {
+  //   this.service.getFechamento().then((result: any[]) => {
+  //     this.fechamentos = result['fecha'];
+  //     console.log(result['fechamento']);
+  //   }).catch((error: any) => {
+  //     console.error("error: " + error);
+  //   });
+  // }
 
 
 }

@@ -31,9 +31,24 @@ export class DadosSCService {
     });
   }
 
-
+  // getFechamento() {
+  //   return new Promise((resolve, reject) => {
+  //     //let url = 'http://172.20.10.6/phpp/api-fechamento.php'; //laravel
+  //     let url = 'http://localhost/phpp/api-fechamento.php'; //laravel
+  //     this.http.get(url)
+  //       .toPromise()
+  //       .then((result: any) => {
+  //         resolve(result.json());
+  //         console.log("fechamento");
+  //       },
+  //         (error) => {
+  //           resolve(error.json());
+  //           console.error(error);
+  //         });
+  //   });
+  // }
   
-  getFechamento(){
+  getFechamento(data: String, total: number, comercial: number, linha: number, psico: number, pgunidades: number, pgvolumes: number, inciolinha: number, faltalinha: number, conferido: number, faltaconferir: number, tlinha: number, tconferencia: number, v762: number, v766: number, v790: number ){
     let headers = new Headers(
       {
         'Content-Type': 'application/json'
@@ -41,7 +56,24 @@ export class DadosSCService {
     let options = new RequestOptions({ headers: headers });
     return new Promise((resolve, reject) => {
       this.http.post('http://localhost/phpp/api-fechamento.php',
-        options
+        {
+          "data": data,
+          "captacao_total": total,
+          "captacao_comercial": comercial,
+          "linha": linha,
+          "psico": psico,
+          "pedido_grande_unidades": pgunidades,
+          "pedido_grande_volumes": pgvolumes,
+          "inicio_linha": inciolinha,
+          "falta_inicio_linha": faltalinha,
+          "conferencia": conferido,
+          "falta_conferencia": faltaconferir,
+          "termino_linha": tlinha,
+          "termino_conferencia": tconferencia,
+          "rede762": v762,
+          "rede766": v766,
+          "rede790": v790
+        }, options
       )
         .toPromise()
         .then((response) => {

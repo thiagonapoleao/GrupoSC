@@ -5,8 +5,18 @@
 // file can hold Sass mixins, functions, and placeholder classes to be imported 
 // and used throughout the application.
 
+.navcontroll {
+    color: aliceblue;  
+    --ion-background-color: #254C87;  
+  
+    
+}
+
+
 .nav {
     color: aliceblue;  
-    --ion-background-color: #23467D;   
+    --ion-background-color: #254C87;  
+    --background: url('/assets/img/GrupoSC-1.png') 0 0/100% 100% no-repeat;
+    
 }
 

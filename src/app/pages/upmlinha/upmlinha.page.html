@@ -1,5 +1,5 @@
-<ion-header color="secondary">
-  <ion-toolbar color="secondary">
+<ion-header color="tertiary">
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content class="alto">
   <ion-card class="pincipal">
     <p>
       <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Analise da UPM
@@ -22,18 +23,39 @@
       <ion-button color="danger" class="menu">Erros</ion-button>
       <ion-button color="danger" class="menu">Qt Conf.</ion-button>
     </ion-item>
-    <P>
-      <p>
-        <ion-item *ngFor="let upm of upms">
-          <ion-label>{{upm.tipo}}</ion-label>
-          <ion-button>{{upm.meta}}</ion-button>
-          <ion-button>{{upm.upm}}</ion-button>
-          <ion-button>{{upm.erros}}</ion-button>
-          <ion-button>{{upm.conferencia}}</ion-button>
-        </ion-item>
+  </ion-card>
+  <ion-card class="dados">
+    <ion-item *ngFor="let upm of upms">
+      <ion-label>{{upm.tipo}}</ion-label>
+      <ion-button>{{upm.meta | number : '1.0-0' }}</ion-button>
+      <ion-button>{{upm.upm | number : '1.0-0' }}</ion-button>
+      <ion-button>{{upm.erros | number : '1.0-0' }}</ion-button>
+      <ion-button>{{upm.conferencia | number : '1.0-0' }}</ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>
 
-      </p>
-  </ion-card>  
-    
+<ion-content class="baixo">
  
+  <ion-card class="grafico">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="grafico">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas2></canvas>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="grafico">
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas #barCanvas3></canvas>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

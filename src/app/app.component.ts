@@ -28,6 +28,11 @@ export class AppComponent {
       icon: 'conferencia'
     },
     {
+      title: 'Produção por Conferente',
+      url: '/analiseprodconf',
+      icon: 'conferencia'
+    },
+    {
       title: 'Erros por separador',
       url: '/errseparacao',
       icon: 'errseparacao'
@@ -36,6 +41,11 @@ export class AppComponent {
       title: 'Fechamento Operacional',
       url: '/fechamento',
       icon: 'fechamento'
+    },
+    {
+      title: 'UPM Linha',
+      url: '/upmlinha',
+      icon: 'upmlinha'
     }
   ];
 
