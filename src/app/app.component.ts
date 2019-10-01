@@ -13,7 +13,7 @@ import { DadosSCService } from './pages/services/dados-sc.service';
 export class AppComponent {
   public appPages = [
     {
-      title: 'Home',
+      title: 'Farol',
       url: '/home',
       icon: 'home'
     },

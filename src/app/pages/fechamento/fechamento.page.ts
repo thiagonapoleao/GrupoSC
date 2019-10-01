@@ -16,51 +16,41 @@ import { Fechamento } from './fechamento.model';
 export class FechamentoPage implements OnInit {
   @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   navigation: NavigationExtras;
-  
+
 
   //replica aqui os atributos
-  fechamentos : Fechamento[];
+  fechamentos: Fechamento[];
   data: any;
-  captacao_total: any;
-  captacao_comercial: any;
+  total: any;
+  comercial: any;
   linha: any;
   psico: any;
-  pedido_grande_unidades: any;
-  pedido_grande_volumes: any;
-  inicio_linha: any;
-  falta_inicio_linha: any;
-  conferencia: any;
-  falta_conferencia: any;
-  termino_linha: any;
-  termino_conferencia: any;
-  rede762: any;
-  rede766: any;
-  rede790: any; 
+  pgunidades: any;
+  pgvolumes: any;
+  inciolinha: any;
+  faltalinha: any;
+  conferido: any;
+  faltaconferir: any;
+  tlinha: any;
+  tconferencia: any;
+  v762: any;
+  v766: any;
+  v790: any;
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
-   
+
   }
 
   ngOnInit() {
   }
 
   Fechamento() {
-    this.service.getFechamento(this.data, this.captacao_total, this.captacao_comercial, this.linha, this.psico, this.pedido_grande_unidades, this.pedido_grande_volumes, this.inicio_linha, this.falta_inicio_linha, this.conferencia, this.falta_conferencia, this.termino_linha, this.termino_conferencia, this.rede762, this.rede766, this.rede790).then((result: any[]) => {
-      this.fechamentos = result['fecha'];     
+    this.service.getFechamento(this.data, this.total, this.comercial, this.linha, this.psico, this.pgunidades, this.pgvolumes, this.inciolinha, this.faltalinha, this.conferido, this.faltaconferir, this.tlinha, this.tconferencia, this.v762, this.v766, this.v790).then((result: any[]) => {
+      this.fechamentos = result['fecha'];
       console.log("getFechamento");
     }).catch((error: any) => {
-      console.error("error: " + error);
+      console.error(error);
     });
   }
-
-  // Fechamento() {
-  //   this.service.getFechamento().then((result: any[]) => {
-  //     this.fechamentos = result['fecha'];
-  //     console.log(result['fechamento']);
-  //   }).catch((error: any) => {
-  //     console.error("error: " + error);
-  //   });
-  // }
-
 
 }

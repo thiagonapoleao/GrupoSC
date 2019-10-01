@@ -31,50 +31,38 @@ export class DadosSCService {
     });
   }
 
-  // getFechamento() {
-  //   return new Promise((resolve, reject) => {
-  //     //let url = 'http://172.20.10.6/phpp/api-fechamento.php'; //laravel
-  //     let url = 'http://localhost/phpp/api-fechamento.php'; //laravel
-  //     this.http.get(url)
-  //       .toPromise()
-  //       .then((result: any) => {
-  //         resolve(result.json());
-  //         console.log("fechamento");
-  //       },
-  //         (error) => {
-  //           resolve(error.json());
-  //           console.error(error);
-  //         });
-  //   });
-  // }
-  
-  getFechamento(data: String, total: number, comercial: number, linha: number, psico: number, pgunidades: number, pgvolumes: number, inciolinha: number, faltalinha: number, conferido: number, faltaconferir: number, tlinha: number, tconferencia: number, v762: number, v766: number, v790: number ){
-    let headers = new Headers(
-      {
-        'Content-Type': 'application/json'
-      });
+  getFechamento(data: String, total: number, comercial: number, linha: number, psico: number, pgunidades: number, pgvolumes: number, inciolinha: number, faltalinha: number, conferido: number, faltaconferir: number, tlinha: number, tconferencia: number, v762: number, v766: number, v790: number) {
+    var headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    headers.append('Accept', 'application/json');
+    headers.append('content-type', 'application/json');
+    headers.append('Content-Type', 'multipart/form-data');
     let options = new RequestOptions({ headers: headers });
+
+    var myData = JSON.stringify({
+      //php : ta na tela      
+      data: data,
+      captacao_total: total,
+      captacao_comercial: comercial,
+      linha: linha,
+      psico: psico,
+      pedido_grande_unidades: pgunidades,
+      pedido_grande_volumes: pgvolumes,
+      inicio_linha: inciolinha,
+      falta_inicio_linha: faltalinha,
+      conferencia: conferido,
+      falta_conferencia: faltaconferir,
+      termino_linha: tlinha,
+      termino_conferencia: tconferencia,
+      rede762: v762,
+      rede766: v766,
+      rede790: v790
+    });
+
+
     return new Promise((resolve, reject) => {
-      this.http.post('http://localhost/phpp/api-fechamento.php',
-        {
-          "data": data,
-          "captacao_total": total,
-          "captacao_comercial": comercial,
-          "linha": linha,
-          "psico": psico,
-          "pedido_grande_unidades": pgunidades,
-          "pedido_grande_volumes": pgvolumes,
-          "inicio_linha": inciolinha,
-          "falta_inicio_linha": faltalinha,
-          "conferencia": conferido,
-          "falta_conferencia": faltaconferir,
-          "termino_linha": tlinha,
-          "termino_conferencia": tconferencia,
-          "rede762": v762,
-          "rede766": v766,
-          "rede790": v790
-        }, options
-      )
+      this.http.post('http://localhost/phpp/api-fechamento.php', myData, options)
         .toPromise()
         .then((response) => {
           console.log(response);
@@ -105,7 +93,7 @@ export class DadosSCService {
         .toPromise()
         .then((response) => {
           console.log(response);
-          resolve(response.json());
+          resolve(response.json());                  
         }).catch(error => {
           console.error(error.status);
           console.error(JSON.stringify(error));
