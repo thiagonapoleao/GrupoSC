@@ -1,0 +1,123 @@
+<ion-header color="tertiary">
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <span>Indicadores GrupoSC</span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="alto">
+  <ion-card class="pincipal">
+    <ion-item class="top">
+      <ion-label style="text-align: center; font-size: 16px">Fechamento Operacional</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+
+<ion-content class="baixo">
+  <ion-card class="dados">
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Data do Fechamento: </ion-label>
+        <ion-input type="date" [(ngModel)]=data></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Captação Total: </ion-label>
+        <ion-input type="number" [(ngModel)]=total></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Captação Comercial: </ion-label>
+        <ion-input type="number" [(ngModel)]=comercial></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Captação Linha: </ion-label>
+        <ion-input type="number" [(ngModel)]=linha></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Captação Psico: </ion-label>
+        <ion-input type="number" [(ngModel)]=psico></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Pedido G Unidades: </ion-label>
+        <ion-input type="number" [(ngModel)]=pgunidades></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Pedido G Volumes: </ion-label>
+        <ion-input type="number" [(ngModel)]=pgvolumes></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Entrada Incio de Linha: </ion-label>
+        <ion-input type="number" [(ngModel)]=inciolinha></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Falta Incio de Linha: </ion-label>
+        <ion-input type="number" [(ngModel)]=faltalinha></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Unidades Conferidas: </ion-label>
+        <ion-input type="number" [(ngModel)]=conferido></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Falta Confeir: </ion-label>
+        <ion-input type="number" [(ngModel)]=faltaconferir></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Prev. Termino Linha: </ion-label>
+        <ion-input type="number" [(ngModel)]=tlinha></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Prev. Termino Conferência: </ion-label>
+        <ion-input type="number" [(ngModel)]=tconferencia></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Volumes Rota 762: </ion-label>
+        <ion-input type="number" [(ngModel)]=v762></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Volumes Rota 766: </ion-label>
+        <ion-input type="number" [(ngModel)]=v766></ion-input>
+      </ion-item>
+    </P>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Volumes Rota 790: </ion-label>
+        <ion-input type="number" [(ngModel)]=v790></ion-input>
+      </ion-item>
+    </P>
+    <p></p>
+  </ion-card>
+ 
+    <ion-button class="ion-margin-top" (click)="Fechamento()" color="light" expand="block">Lançar Dados</ion-button>
+  <p></p>
+</ion-content>

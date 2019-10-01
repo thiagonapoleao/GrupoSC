@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header color=\"secondary\">\r\n  <ion-toolbar color=\"secondary\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <span>Indicadores GrupoSC</span>\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-card class=\"pincipal\">\r\n    <p>\r\n      <ion-card-subtitle style=\"text-align:center; color: aliceblue; font-size: 16px\">Analise da UPM\r\n      </ion-card-subtitle>\r\n    </p>\r\n    <ion-item class=\"top\">\r\n      <ion-label>UPM</ion-label>\r\n      <ion-button color=\"danger\" class=\"menu\">Meta Mensal</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">UPM</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">Erros</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">Qt Conf.</ion-button>\r\n    </ion-item>\r\n    <P>\r\n      <p>\r\n        <ion-item *ngFor=\"let upm of upms\">\r\n          <ion-label>{{upm.tipo}}</ion-label>\r\n          <ion-button>{{upm.meta}}</ion-button>\r\n          <ion-button>{{upm.upm}}</ion-button>\r\n          <ion-button>{{upm.erros}}</ion-button>\r\n          <ion-button>{{upm.conferencia}}</ion-button>\r\n        </ion-item>\r\n\r\n      </p>\r\n\r\n      \r\n  </ion-card>\r\n</ion-content>"
+module.exports = "<ion-header color=\"tertiary\">\r\n  <ion-toolbar color=\"tertiary\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <span>Indicadores GrupoSC</span>\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n\r\n<ion-content class=\"alto\">\r\n  <ion-card class=\"pincipal\">\r\n    <p>\r\n      <ion-card-subtitle style=\"text-align:center; color: aliceblue; font-size: 16px\">Analise da UPM\r\n      </ion-card-subtitle>\r\n    </p>\r\n    <ion-item class=\"top\">\r\n      <ion-label>UPM</ion-label>\r\n      <ion-button color=\"danger\" class=\"menu\">Meta Mensal</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">UPM</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">Erros</ion-button>\r\n      <ion-button color=\"danger\" class=\"menu\">Qt Conf.</ion-button>\r\n    </ion-item>\r\n  </ion-card>\r\n  <ion-card class=\"dados\">\r\n    <ion-item *ngFor=\"let upm of upms\">\r\n      <ion-label>{{upm.tipo}}</ion-label>\r\n      <ion-button>{{upm.meta | number : '1.0-0' }}</ion-button>\r\n      <ion-button>{{upm.upm | number : '1.0-0' }}</ion-button>\r\n      <ion-button>{{upm.erros | number : '1.0-0' }}</ion-button>\r\n      <ion-button>{{upm.conferencia | number : '1.0-0' }}</ion-button>\r\n    </ion-item>\r\n  </ion-card>\r\n</ion-content>\r\n\r\n<ion-content class=\"baixo\">\r\n  <ion-card class=\"grafico\">\r\n    <ion-card-header>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <canvas #barCanvas></canvas>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card class=\"grafico\">\r\n    <ion-card-header>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <canvas #barCanvas2></canvas>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card class=\"grafico\">\r\n    <ion-card-header>\r\n    </ion-card-header>\r\n    <ion-card-content>\r\n      <canvas #barCanvas3></canvas>\r\n    </ion-card-content>\r\n  </ion-card>\r\n</ion-content>"
 
 /***/ }),
 
@@ -69,7 +69,7 @@ var UpmPageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".pincipal ion-slides {\n  height: 7%;\n}\n.pincipal span {\n  color: #ffffff;\n}\n.pincipal ion-item {\n  --border-radius: 5px;\n}\n.pincipal ion-label {\n  font-size: 12px;\n  white-space: pre-line;\n}\n.pincipal ion-button {\n  width: 90;\n  height: 100;\n  max-height: 40px;\n  min-height: 40px;\n  max-width: 60px;\n  min-width: 60px;\n  font-size: 12px;\n  white-space: pre-line;\n  --border-radius: 6px;\n}\n.pincipal .menu {\n  font-size: 9px;\n}\nion-content {\n  --background: url(\"/assets/img/GrupoSC-d.png\") 0 0/100% 100% no-repeat;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdXBtL0M6XFxEZXNlbnZvbHZpbWVudG9cXFRDQ1xcVjAwXFxHcnVwb1NDL3NyY1xcYXBwXFxwYWdlc1xcdXBtXFx1cG0ucGFnZS5zY3NzIiwic3JjL2FwcC9wYWdlcy91cG0vdXBtLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFSTtFQUNJLFVBQUE7QUNEUjtBRElJO0VBQ0ksY0FBQTtBQ0ZSO0FETUk7RUFDSSxvQkFBQTtBQ0pSO0FET0k7RUFDSSxlQUFBO0VBQ0EscUJBQUE7QUNMUjtBRFFJO0VBQ0ksU0FBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxvQkFBQTtBQ05SO0FEU0U7RUFDRSxjQUFBO0FDUEo7QURZQTtFQUNJLHNFQUFBO0FDVEoiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy91cG0vdXBtLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5waW5jaXBhbCB7XHJcblxyXG4gICAgaW9uLXNsaWRlcyB7XHJcbiAgICAgICAgaGVpZ2h0OiA3JTsgICAgICAgICAgICAgICAgXHJcbiAgICB9XHJcblxyXG4gICAgc3BhbiB7XHJcbiAgICAgICAgY29sb3I6ICNmZmZmZmY7ICAgXHJcbiAgICAgICAgXHJcbiAgICB9XHJcbiAgICBcclxuICAgIGlvbi1pdGVtIHsgIFxyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogNXB4OyAgICAgICAgICAgICBcclxuICAgIH1cclxuXHJcbiAgICBpb24tbGFiZWwge1xyXG4gICAgICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgICAgICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7ICAgXHJcbiAgICB9XHJcblxyXG4gICAgaW9uLWJ1dHRvbiB7XHJcbiAgICAgICAgd2lkdGg6OTA7XHJcbiAgICAgICAgaGVpZ2h0OjEwMDtcclxuICAgICAgICBtYXgtaGVpZ2h0OiA0MHB4O1xyXG4gICAgICAgIG1pbi1oZWlnaHQ6IDQwcHg7XHJcbiAgICAgICAgbWF4LXdpZHRoOiA2MHB4O1xyXG4gICAgICAgIG1pbi13aWR0aDogNjBweDtcclxuICAgICAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICAgICAgd2hpdGUtc3BhY2U6IHByZS1saW5lOyAgICAgICAgICAgIFxyXG4gICAgICAgIC0tYm9yZGVyLXJhZGl1czogNnB4OyAgICAgXHJcbiAgICB9XHJcblxyXG4gIC5tZW51IHtcclxuICAgIGZvbnQtc2l6ZTogOXB4O1xyXG4gIH1cclxuICAgICAgICBcclxufVxyXG5cclxuaW9uLWNvbnRlbnQge1xyXG4gICAgLS1iYWNrZ3JvdW5kOiB1cmwoJy9hc3NldHMvaW1nL0dydXBvU0MtZC5wbmcnKSAwIDAvMTAwJSAxMDAlIG5vLXJlcGVhdDtcclxuICAgIC8vIGJhY2tncm91bmQtcmVwZWF0OiBuby1yZXBlYXQ7ICAgIFxyXG4gICAgLy8gYmFja2dyb3VuZC1zaXplOiBjb3ZlciA7XHJcbn1cclxuICAgIFxyXG4gICAgICAiLCIucGluY2lwYWwgaW9uLXNsaWRlcyB7XG4gIGhlaWdodDogNyU7XG59XG4ucGluY2lwYWwgc3BhbiB7XG4gIGNvbG9yOiAjZmZmZmZmO1xufVxuLnBpbmNpcGFsIGlvbi1pdGVtIHtcbiAgLS1ib3JkZXItcmFkaXVzOiA1cHg7XG59XG4ucGluY2lwYWwgaW9uLWxhYmVsIHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7XG59XG4ucGluY2lwYWwgaW9uLWJ1dHRvbiB7XG4gIHdpZHRoOiA5MDtcbiAgaGVpZ2h0OiAxMDA7XG4gIG1heC1oZWlnaHQ6IDQwcHg7XG4gIG1pbi1oZWlnaHQ6IDQwcHg7XG4gIG1heC13aWR0aDogNjBweDtcbiAgbWluLXdpZHRoOiA2MHB4O1xuICBmb250LXNpemU6IDEycHg7XG4gIHdoaXRlLXNwYWNlOiBwcmUtbGluZTtcbiAgLS1ib3JkZXItcmFkaXVzOiA2cHg7XG59XG4ucGluY2lwYWwgLm1lbnUge1xuICBmb250LXNpemU6IDlweDtcbn1cblxuaW9uLWNvbnRlbnQge1xuICAtLWJhY2tncm91bmQ6IHVybChcIi9hc3NldHMvaW1nL0dydXBvU0MtZC5wbmdcIikgMCAwLzEwMCUgMTAwJSBuby1yZXBlYXQ7XG59Il19 */"
+module.exports = "@charset \"UTF-8\";\ncabeçalho da pagina home .top {\n  position: fixed;\n  margin-bottom: 40px !important;\n  z-index: 999;\n}\np {\n  margin-top: 8px;\n  margin-bottom: 0px;\n}\n.alto {\n  --background: url(\"/assets/img/GrupoSC-top13.png\") 0 0/100% 100% no-repeat;\n  max-height: 250px;\n}\n.pincipal ion-slides {\n  height: 7%;\n}\n.pincipal span {\n  color: #ffffff;\n}\n.pincipal ion-item {\n  --border-radius: 5px;\n}\n.pincipal ion-label {\n  font-size: 12px;\n  white-space: pre-line;\n}\n.pincipal ion-button {\n  width: 90;\n  height: 100;\n  max-height: 40px;\n  min-height: 40px;\n  max-width: 60px;\n  min-width: 60px;\n  font-size: 12px;\n  white-space: pre-line;\n  --border-radius: 6px;\n}\n.pincipal .menu {\n  font-size: 9px;\n}\n.dados {\n  margin-top: 8px;\n}\n.dados ion-slides {\n  height: 7%;\n}\n.dados span {\n  color: #ffffff;\n}\n.dados ion-item {\n  --border-radius: 5px;\n}\n.dados ion-label {\n  font-size: 12px;\n  white-space: pre-line;\n}\n.dados ion-button {\n  width: 90;\n  height: 100;\n  max-height: 40px;\n  min-height: 40px;\n  max-width: 60px;\n  min-width: 60px;\n  font-size: 12px;\n  white-space: pre-line;\n  --border-radius: 6px;\n}\n.dados .menu {\n  font-size: 9px;\n}\n.baixo {\n  --background: url(\"/assets/img/GrupoSC-top13.png\") 0 0/100% 100% no-repeat;\n}\n.grafico {\n  background-color: #ffffff;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdXBtL3VwbS5wYWdlLnNjc3MiLCJzcmMvYXBwL3BhZ2VzL3VwbS9DOlxcRGVzZW52b2x2aW1lbnRvXFxUQ0NcXFYwMFxcR3J1cG9TQy9zcmNcXGFwcFxccGFnZXNcXHVwbVxcdXBtLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxnQkFBZ0I7QUNBaEI7RUFFRSxlQUFBO0VBQ0EsOEJBQUE7RUFDQSxZQUFBO0FEQ0Y7QUNFQTtFQUNFLGVBQUE7RUFDQSxrQkFBQTtBRENGO0FDRUE7RUFDRSwwRUFBQTtFQUNBLGlCQUFBO0FEQ0Y7QUNLQTtFQUNFLFVBQUE7QURGRjtBQ0tBO0VBQ0UsY0FBQTtBREhGO0FDT0E7RUFDRSxvQkFBQTtBRExGO0FDU0E7RUFDRSxlQUFBO0VBQ0EscUJBQUE7QURQRjtBQ1VBO0VBQ0UsU0FBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxvQkFBQTtBRFJGO0FDV0E7RUFDQSxjQUFBO0FEVEE7QUNjQTtFQUVBLGVBQUE7QURaQTtBQ2NBO0VBQ0UsVUFBQTtBRFpGO0FDZUE7RUFDRSxjQUFBO0FEYkY7QUNpQkE7RUFDRSxvQkFBQTtBRGZGO0FDbUJBO0VBQ0UsZUFBQTtFQUNBLHFCQUFBO0FEakJGO0FDb0JBO0VBQ0UsU0FBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGdCQUFBO0VBQ0EsZUFBQTtFQUNBLGVBQUE7RUFDQSxlQUFBO0VBQ0EscUJBQUE7RUFDQSxvQkFBQTtBRGxCRjtBQ3FCQTtFQUNBLGNBQUE7QURuQkE7QUN3QkE7RUFDRSwwRUFBQTtBRHJCRjtBQzBCQTtFQUNJLHlCQUFBO0FEdkJKIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvdXBtL3VwbS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCBcIlVURi04XCI7XG5jYWJlw6dhbGhvIGRhIHBhZ2luYSBob21lIC50b3Age1xuICBwb3NpdGlvbjogZml4ZWQ7XG4gIG1hcmdpbi1ib3R0b206IDQwcHggIWltcG9ydGFudDtcbiAgei1pbmRleDogOTk5O1xufVxuXG5wIHtcbiAgbWFyZ2luLXRvcDogOHB4O1xuICBtYXJnaW4tYm90dG9tOiAwcHg7XG59XG5cbi5hbHRvIHtcbiAgLS1iYWNrZ3JvdW5kOiB1cmwoXCIvYXNzZXRzL2ltZy9HcnVwb1NDLXRvcDEzLnBuZ1wiKSAwIDAvMTAwJSAxMDAlIG5vLXJlcGVhdDtcbiAgbWF4LWhlaWdodDogMjUwcHg7XG59XG5cbi5waW5jaXBhbCBpb24tc2xpZGVzIHtcbiAgaGVpZ2h0OiA3JTtcbn1cbi5waW5jaXBhbCBzcGFuIHtcbiAgY29sb3I6ICNmZmZmZmY7XG59XG4ucGluY2lwYWwgaW9uLWl0ZW0ge1xuICAtLWJvcmRlci1yYWRpdXM6IDVweDtcbn1cbi5waW5jaXBhbCBpb24tbGFiZWwge1xuICBmb250LXNpemU6IDEycHg7XG4gIHdoaXRlLXNwYWNlOiBwcmUtbGluZTtcbn1cbi5waW5jaXBhbCBpb24tYnV0dG9uIHtcbiAgd2lkdGg6IDkwO1xuICBoZWlnaHQ6IDEwMDtcbiAgbWF4LWhlaWdodDogNDBweDtcbiAgbWluLWhlaWdodDogNDBweDtcbiAgbWF4LXdpZHRoOiA2MHB4O1xuICBtaW4td2lkdGg6IDYwcHg7XG4gIGZvbnQtc2l6ZTogMTJweDtcbiAgd2hpdGUtc3BhY2U6IHByZS1saW5lO1xuICAtLWJvcmRlci1yYWRpdXM6IDZweDtcbn1cbi5waW5jaXBhbCAubWVudSB7XG4gIGZvbnQtc2l6ZTogOXB4O1xufVxuXG4uZGFkb3Mge1xuICBtYXJnaW4tdG9wOiA4cHg7XG59XG4uZGFkb3MgaW9uLXNsaWRlcyB7XG4gIGhlaWdodDogNyU7XG59XG4uZGFkb3Mgc3BhbiB7XG4gIGNvbG9yOiAjZmZmZmZmO1xufVxuLmRhZG9zIGlvbi1pdGVtIHtcbiAgLS1ib3JkZXItcmFkaXVzOiA1cHg7XG59XG4uZGFkb3MgaW9uLWxhYmVsIHtcbiAgZm9udC1zaXplOiAxMnB4O1xuICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7XG59XG4uZGFkb3MgaW9uLWJ1dHRvbiB7XG4gIHdpZHRoOiA5MDtcbiAgaGVpZ2h0OiAxMDA7XG4gIG1heC1oZWlnaHQ6IDQwcHg7XG4gIG1pbi1oZWlnaHQ6IDQwcHg7XG4gIG1heC13aWR0aDogNjBweDtcbiAgbWluLXdpZHRoOiA2MHB4O1xuICBmb250LXNpemU6IDEycHg7XG4gIHdoaXRlLXNwYWNlOiBwcmUtbGluZTtcbiAgLS1ib3JkZXItcmFkaXVzOiA2cHg7XG59XG4uZGFkb3MgLm1lbnUge1xuICBmb250LXNpemU6IDlweDtcbn1cblxuLmJhaXhvIHtcbiAgLS1iYWNrZ3JvdW5kOiB1cmwoXCIvYXNzZXRzL2ltZy9HcnVwb1NDLXRvcDEzLnBuZ1wiKSAwIDAvMTAwJSAxMDAlIG5vLXJlcGVhdDtcbn1cblxuLmdyYWZpY28ge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xufSIsImNhYmXDp2FsaG8gZGEgcGFnaW5hIGhvbWVcclxuLnRvcCB7XHJcbiAgcG9zaXRpb246IGZpeGVkO1xyXG4gIG1hcmdpbi1ib3R0b206IDQwcHggIWltcG9ydGFudDtcclxuICB6LWluZGV4OiA5OTk7ICAgICAgIFxyXG59XHJcblxyXG5we1xyXG4gIG1hcmdpbi10b3A6IDhweDtcclxuICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuXHJcbi5hbHRvIHtcclxuICAtLWJhY2tncm91bmQ6IHVybCgnL2Fzc2V0cy9pbWcvR3J1cG9TQy10b3AxMy5wbmcnKSAwIDAvMTAwJSAxMDAlIG5vLXJlcGVhdDtcclxuICBtYXgtaGVpZ2h0OiAyNTBweDtcclxufVxyXG5cclxuXHJcbi5waW5jaXBhbCB7ICAgIFxyXG5cclxuaW9uLXNsaWRlcyB7XHJcbiAgaGVpZ2h0OiA3JTsgICAgICAgICAgICAgICAgXHJcbn1cclxuXHJcbnNwYW4ge1xyXG4gIGNvbG9yOiAjZmZmZmZmOyAgIFxyXG4gIFxyXG59XHJcblxyXG5pb24taXRlbSB7ICBcclxuICAtLWJvcmRlci1yYWRpdXM6IDVweDsgICAgXHJcbiAgICAgICBcclxufVxyXG5cclxuaW9uLWxhYmVsIHtcclxuICBmb250LXNpemU6IDEycHg7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS1saW5lOyAgIFxyXG59XHJcblxyXG5pb24tYnV0dG9uIHsgICAgICBcclxuICB3aWR0aDo5MDtcclxuICBoZWlnaHQ6MTAwO1xyXG4gIG1heC1oZWlnaHQ6IDQwcHg7XHJcbiAgbWluLWhlaWdodDogNDBweDtcclxuICBtYXgtd2lkdGg6IDYwcHg7XHJcbiAgbWluLXdpZHRoOiA2MHB4O1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxuICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7ICAgICAgICAgICAgXHJcbiAgLS1ib3JkZXItcmFkaXVzOiA2cHg7ICAgICBcclxufVxyXG5cclxuLm1lbnUge1xyXG5mb250LXNpemU6IDlweDtcclxufVxyXG4gIFxyXG59XHJcblxyXG4uZGFkb3Mge1xyXG5cclxubWFyZ2luLXRvcDogOHB4O1xyXG5cclxuaW9uLXNsaWRlcyB7XHJcbiAgaGVpZ2h0OiA3JTsgICAgICAgICAgICAgICAgXHJcbn1cclxuXHJcbnNwYW4ge1xyXG4gIGNvbG9yOiAjZmZmZmZmOyAgIFxyXG4gIFxyXG59XHJcblxyXG5pb24taXRlbSB7ICBcclxuICAtLWJvcmRlci1yYWRpdXM6IDVweDsgICAgXHJcbiAgICAgICBcclxufVxyXG5cclxuaW9uLWxhYmVsIHtcclxuICBmb250LXNpemU6IDEycHg7XHJcbiAgd2hpdGUtc3BhY2U6IHByZS1saW5lOyAgIFxyXG59XHJcblxyXG5pb24tYnV0dG9uIHsgICAgICBcclxuICB3aWR0aDo5MDtcclxuICBoZWlnaHQ6MTAwO1xyXG4gIG1heC1oZWlnaHQ6IDQwcHg7XHJcbiAgbWluLWhlaWdodDogNDBweDtcclxuICBtYXgtd2lkdGg6IDYwcHg7XHJcbiAgbWluLXdpZHRoOiA2MHB4O1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxuICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7ICAgICAgICAgICAgXHJcbiAgLS1ib3JkZXItcmFkaXVzOiA2cHg7ICAgICBcclxufVxyXG5cclxuLm1lbnUge1xyXG5mb250LXNpemU6IDlweDtcclxufVxyXG4gIFxyXG59XHJcblxyXG4uYmFpeG8geyAgICAgIFxyXG4gIC0tYmFja2dyb3VuZDogdXJsKCcvYXNzZXRzL2ltZy9HcnVwb1NDLXRvcDEzLnBuZycpIDAgMC8xMDAlIDEwMCUgbm8tcmVwZWF0O1xyXG4vLyBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0OyAgICBcclxuLy8gYmFja2dyb3VuZC1zaXplOiBjb3ZlciA7XHJcbn1cclxuICAgIFxyXG4uZ3JhZmljbyB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjZmZmZmZmO1xyXG59XHJcbiAgICAgICJdfQ== */"
 
 /***/ }),
 
@@ -88,6 +88,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_dados_sc_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/dados-sc.service */ "./src/app/pages/services/dados-sc.service.ts");
 /* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/dist/fesm5.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -98,23 +101,263 @@ var UpmPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.service = service;
         this.route = route;
-        this.getDados();
+        this.soma = [];
+        this.buscaDados();
     }
+    UpmPage.prototype.buscaDados = function () {
+        this.getDados();
+        this.getDadosUpm();
+        this.getDadosEstacao();
+    };
     UpmPage.prototype.getDados = function () {
         var _this = this;
         this.service.getUpm().then(function (result) {
-            _this.upms = result['upms'];
+            _this.upms = result['upms']; // result['upms'] equivalente ao Jout da api php..
+        }).catch(function (error) {
+            console.error("error: " + error);
+        });
+    };
+    UpmPage.prototype.getDadosUpm = function () {
+        var _this = this;
+        this.service.getUpmhr().then(function (result) {
+            _this.upmh = result['upmh']; // result['upmh'] equivalente ao Jout da api php..
+            //console.log(this.upmh);
+        }).catch(function (error) {
+            console.error("error: " + error);
+        });
+    };
+    UpmPage.prototype.getDadosEstacao = function () {
+        var _this = this;
+        this.service.getEstacao().then(function (result) {
+            _this.estacoes = result['erroestacao']; // result['erroestacao'] equivalente ao Jout da api php..
+            // console.log("Erro por estaçãp: " + this.estacoes);
+            for (var _i = 0, _a = _this.estacoes; _i < _a.length; _i++) {
+                var estacao = _a[_i];
+                _this.soma.push(parseInt(estacao.falta_upm) + parseInt(estacao.sobra_upm) + parseInt(estacao.troca_upm) + parseInt(estacao.erro_conf_upm));
+            }
         }).catch(function (error) {
             console.error("error: " + error);
         });
     };
     UpmPage.prototype.ngOnInit = function () {
+        var _this = this;
+        setInterval(function () {
+            _this.buscaDados();
+            _this.barCanvas = _this.getBarChart();
+            _this.barCanvas2 = _this.getBarChart2();
+            _this.barCanvas3 = _this.getBarChart3();
+            //this.barCanvas1 = this.getBarChart1();
+            //this.lineChart = this.getLineChart();
+        }, 3000);
+        // setTimeout(() => {
+        //   // this.pieCanvas = this.getPieChart();
+        //   // this.doughnutChart = this.getDoughnutChart();
+        // }, 3000)
+    };
+    UpmPage.prototype.ngAfterViewInit = function () {
+    };
+    UpmPage.prototype.getChart = function (context, chartType, data, options) {
+        return new chart_js__WEBPACK_IMPORTED_MODULE_5___default.a(context, {
+            data: data,
+            options: options,
+            type: chartType
+        });
+    };
+    UpmPage.prototype.getBarChart = function () {
+        //console.log(this.upmh);
+        type: 'bar';
+        var rotulos = [];
+        var dados = [];
+        var cores = [];
+        for (var _i = 0, _a = this.upmh; _i < _a.length; _i++) {
+            var upmh = _a[_i];
+            rotulos.push(upmh.horasD);
+            dados.push(upmh.difErros);
+            cores.push('rgb(18, 34, 70)');
+        }
+        var data = {
+            //labels: [this.upmh[0]['horasD'], this.upmh[1]['horasD'], this.upmh[2]['horasD']],
+            labels: rotulos,
+            datasets: [{
+                    label: 'Erros Por Hora',
+                    //data: [this.upmh[0].difErros, this.upmh[1].difErros, this.upmh[2].difErros],
+                    data: dados,
+                    // backgroundColor: [
+                    //   'rgb(18, 34, 70)',
+                    //   'rgb(18, 34, 70)',
+                    //   'rgb(18, 34, 70)',      
+                    // ],
+                    backgroundColor: cores,
+                }]
+        };
+        var options = {
+            responsive: true,
+            tooltips: {
+                enabled: false
+            },
+            animation: {
+                onComplete: function () {
+                    var ctx = this.chart.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    var chart = this;
+                    var datasets = this.config.data.datasets;
+                    datasets.forEach(function (dataset, i) {
+                        ctx.font = "10px Arial";
+                        ctx.fillStyle = "Black";
+                        chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                            ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+                        });
+                    });
+                }
+            },
+            legend: {
+                display: true,
+                labels: {
+                    fontColor: 'rgb(18, 34, 70)'
+                }
+            },
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        };
+        return this.getChart(this.barCanvas.nativeElement, 'bar', data, options);
+    };
+    UpmPage.prototype.getBarChart2 = function () {
+        //console.log(this.upmh);
+        type: 'bar';
+        var rotulos = [];
+        var dados = [];
+        var cores = [];
+        for (var _i = 0, _a = this.upmh; _i < _a.length; _i++) {
+            var upmh = _a[_i];
+            rotulos.push(upmh.horasD);
+            dados.push(upmh.upm);
+            cores.push('rgb(18, 34, 70)');
+        }
+        var data = {
+            labels: rotulos,
+            datasets: [{
+                    label: 'UPM',
+                    data: dados,
+                    backgroundColor: cores,
+                }]
+        };
+        var options = {
+            responsive: true,
+            tooltips: {
+                enabled: false
+            },
+            animation: {
+                onComplete: function () {
+                    var ctx = this.chart.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    var chart = this;
+                    var datasets = this.config.data.datasets;
+                    datasets.forEach(function (dataset, i) {
+                        ctx.font = "10px Arial";
+                        ctx.fillStyle = "Black";
+                        chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                            ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+                        });
+                    });
+                }
+            },
+            legend: {
+                display: true,
+                labels: {
+                    fontColor: 'rgb(18, 34, 70)'
+                }
+            },
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        };
+        return this.getChart(this.barCanvas2.nativeElement, 'bar', data, options);
+    };
+    UpmPage.prototype.getBarChart3 = function () {
+        //console.log(this.upmh);
+        type: 'bar';
+        var rotulos = [];
+        var dados = [];
+        var cores = [];
+        for (var _i = 0, _a = this.estacoes; _i < _a.length; _i++) {
+            var estacoes = _a[_i];
+            rotulos.push(estacoes.estacao);
+            dados.push(estacoes.troca_upm);
+            cores.push('rgb(18, 34, 70)');
+        }
+        var data = {
+            labels: rotulos,
+            datasets: [{
+                    label: 'Erros por Estações',
+                    data: this.soma,
+                    backgroundColor: cores,
+                }]
+        };
+        var options = {
+            responsive: true,
+            tooltips: {
+                enabled: false
+            },
+            animation: {
+                onComplete: function () {
+                    var ctx = this.chart.ctx;
+                    ctx.textAlign = "center";
+                    ctx.textBaseline = "middle";
+                    var chart = this;
+                    var datasets = this.config.data.datasets;
+                    datasets.forEach(function (dataset, i) {
+                        ctx.font = "10px Arial";
+                        ctx.fillStyle = "Black";
+                        chart.getDatasetMeta(i).data.forEach(function (p, j) {
+                            ctx.fillText(datasets[i].data[j], p._model.x, p._model.y - 5);
+                        });
+                    });
+                }
+            },
+            legend: {
+                display: true,
+                labels: {
+                    fontColor: 'rgb(18, 34, 70)'
+                }
+            },
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+            }
+        };
+        return this.getChart(this.barCanvas3.nativeElement, 'bar', data, options);
     };
     UpmPage.ctorParameters = function () { return [
         { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["NavController"] },
         { type: _services_dados_sc_service__WEBPACK_IMPORTED_MODULE_2__["DadosSCService"] },
         { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] }
     ]; };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('barCanvas', { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], UpmPage.prototype, "barCanvas", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('barCanvas2', { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], UpmPage.prototype, "barCanvas2", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('barCanvas3', { static: false }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], UpmPage.prototype, "barCanvas3", void 0);
     UpmPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
             selector: 'app-upm',

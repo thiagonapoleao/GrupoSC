@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
   { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
   { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },  { path: 'fechamento', loadChildren: './pages/fechamento/fechamento.module#FechamentoPageModule' },
+  { path: 'lancafechamento', loadChildren: './pages/lancafechamento/lancafechamento.module#LancafechamentoPageModule' },
 
 
 

@@ -39,7 +39,7 @@ export class AppComponent {
     },
     {
       title: 'Fechamento Operacional',
-      url: '/fechamento',
+      url: '/lancafechamento',
       icon: 'fechamento'
     },
     {

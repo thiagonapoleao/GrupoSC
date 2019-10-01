@@ -24,6 +24,10 @@ var map = {
 		"./src/app/pages/errseparacao/errseparacao.module.ts",
 		"pages-errseparacao-errseparacao-module"
 	],
+	"./pages/fechamento/fechamento.module": [
+		"./src/app/pages/fechamento/fechamento.module.ts",
+		"pages-fechamento-fechamento-module"
+	],
 	"./pages/home/home.module": [
 		"./src/app/pages/home/home.module.ts",
 		"pages-home-home-module"
@@ -34,10 +38,12 @@ var map = {
 	],
 	"./pages/upm/upm.module": [
 		"./src/app/pages/upm/upm.module.ts",
+		"default~pages-upm-upm-module~pages-upmlinha-upmlinha-module",
 		"pages-upm-upm-module"
 	],
 	"./pages/upmlinha/upmlinha.module": [
 		"./src/app/pages/upmlinha/upmlinha.module.ts",
+		"default~pages-upm-upm-module~pages-upmlinha-upmlinha-module",
 		"pages-upmlinha-upmlinha-module"
 	]
 };
@@ -51,7 +57,7 @@ function webpackAsyncContext(req) {
 	}
 
 	var ids = map[req], id = ids[0];
-	return __webpack_require__.e(ids[1]).then(function() {
+	return Promise.all(ids.slice(1).map(__webpack_require__.e)).then(function() {
 		return __webpack_require__(id);
 	});
 }
@@ -489,7 +495,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app >\r\n  <ion-split-pane >\r\n    <ion-menu type=\"overlay\">\r\n      <ion-header >\r\n        <ion-toolbar  class=\"nav\">\r\n          <ion-title>Menu</ion-title>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content  class=\"nav\">\r\n        <ion-list>\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n              <ion-label style=\"color: aliceblue\"> \r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n"
+module.exports = "<ion-app >\r\n  <ion-split-pane >\r\n    <ion-menu type=\"overlay\">\r\n      <ion-header >\r\n        <ion-toolbar  class=\"navcontroll\">\r\n          <ion-title>Menu</ion-title>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content  class=\"nav\">\r\n        <ion-list>\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n              <ion-label style=\"color: aliceblue\"> \r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -520,6 +526,7 @@ const routes = [
     { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
     { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
     { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
+    { path: 'fechamento', loadChildren: './pages/fechamento/fechamento.module#FechamentoPageModule' },
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -543,7 +550,7 @@ AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".nav {\n  color: aliceblue;\n  --ion-background-color: #23467D;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXERlc2Vudm9sdmltZW50b1xcVENDXFxWMDBcXEdydXBvU0Mvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU9BO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtBQ05KIiwiZmlsZSI6InNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gQXBwIFN0eWxlc1xyXG4vLyAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXHJcbi8vIFB1dCBzdHlsZSBydWxlcyBoZXJlIHRoYXQgeW91IHdhbnQgdG8gYXBwbHkgdG8gdGhlIGVudGlyZSBhcHBsaWNhdGlvbi4gVGhlc2UgXHJcbi8vIHN0eWxlcyBhcmUgZm9yIHRoZSBlbnRpcmUgYXBwIGFuZCBub3QganVzdCBvbmUgY29tcG9uZW50LiBBZGRpdGlvbmFsbHksIHRoaXMgXHJcbi8vIGZpbGUgY2FuIGhvbGQgU2FzcyBtaXhpbnMsIGZ1bmN0aW9ucywgYW5kIHBsYWNlaG9sZGVyIGNsYXNzZXMgdG8gYmUgaW1wb3J0ZWQgXHJcbi8vIGFuZCB1c2VkIHRocm91Z2hvdXQgdGhlIGFwcGxpY2F0aW9uLlxyXG5cclxuLm5hdiB7XHJcbiAgICBjb2xvcjogYWxpY2VibHVlOyAgXHJcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiAjMjM0NjdEOyAgIFxyXG59XHJcblxyXG4iLCIubmF2IHtcbiAgY29sb3I6IGFsaWNlYmx1ZTtcbiAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzIzNDY3RDtcbn0iXX0= */"
+module.exports = ".navcontroll {\n  color: aliceblue;\n  --ion-background-color: #254C87;\n}\n\n.nav {\n  color: aliceblue;\n  --ion-background-color: #254C87;\n  --background: url(\"/assets/img/GrupoSC-1.png\") 0 0/100% 100% no-repeat;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQzpcXERlc2Vudm9sdmltZW50b1xcVENDXFxWMDBcXEdydXBvU0Mvc3JjXFxhcHBcXGFwcC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQU9BO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtBQ05KOztBRFlBO0VBQ0ksZ0JBQUE7RUFDQSwrQkFBQTtFQUNBLHNFQUFBO0FDVEoiLCJmaWxlIjoic3JjL2FwcC9hcHAuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBBcHAgU3R5bGVzXHJcbi8vIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS1cclxuLy8gUHV0IHN0eWxlIHJ1bGVzIGhlcmUgdGhhdCB5b3Ugd2FudCB0byBhcHBseSB0byB0aGUgZW50aXJlIGFwcGxpY2F0aW9uLiBUaGVzZSBcclxuLy8gc3R5bGVzIGFyZSBmb3IgdGhlIGVudGlyZSBhcHAgYW5kIG5vdCBqdXN0IG9uZSBjb21wb25lbnQuIEFkZGl0aW9uYWxseSwgdGhpcyBcclxuLy8gZmlsZSBjYW4gaG9sZCBTYXNzIG1peGlucywgZnVuY3Rpb25zLCBhbmQgcGxhY2Vob2xkZXIgY2xhc3NlcyB0byBiZSBpbXBvcnRlZCBcclxuLy8gYW5kIHVzZWQgdGhyb3VnaG91dCB0aGUgYXBwbGljYXRpb24uXHJcblxyXG4ubmF2Y29udHJvbGwge1xyXG4gICAgY29sb3I6IGFsaWNlYmx1ZTsgIFxyXG4gICAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzI1NEM4NzsgIFxyXG4gIFxyXG4gICAgXHJcbn1cclxuXHJcblxyXG4ubmF2IHtcclxuICAgIGNvbG9yOiBhbGljZWJsdWU7ICBcclxuICAgIC0taW9uLWJhY2tncm91bmQtY29sb3I6ICMyNTRDODc7ICBcclxuICAgIC0tYmFja2dyb3VuZDogdXJsKCcvYXNzZXRzL2ltZy9HcnVwb1NDLTEucG5nJykgMCAwLzEwMCUgMTAwJSBuby1yZXBlYXQ7XHJcbiAgICBcclxufVxyXG5cclxuIiwiLm5hdmNvbnRyb2xsIHtcbiAgY29sb3I6IGFsaWNlYmx1ZTtcbiAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogIzI1NEM4Nztcbn1cblxuLm5hdiB7XG4gIGNvbG9yOiBhbGljZWJsdWU7XG4gIC0taW9uLWJhY2tncm91bmQtY29sb3I6ICMyNTRDODc7XG4gIC0tYmFja2dyb3VuZDogdXJsKFwiL2Fzc2V0cy9pbWcvR3J1cG9TQy0xLnBuZ1wiKSAwIDAvMTAwJSAxMDAlIG5vLXJlcGVhdDtcbn0iXX0= */"
 
 /***/ }),
 
@@ -574,7 +581,7 @@ let AppComponent = class AppComponent {
         this.statusBar = statusBar;
         this.appPages = [
             {
-                title: 'Home',
+                title: 'Farol',
                 url: '/home',
                 icon: 'home'
             },
@@ -589,9 +596,24 @@ let AppComponent = class AppComponent {
                 icon: 'conferencia'
             },
             {
+                title: 'Produção por Conferente',
+                url: '/analiseprodconf',
+                icon: 'conferencia'
+            },
+            {
                 title: 'Erros por separador',
                 url: '/errseparacao',
                 icon: 'errseparacao'
+            },
+            {
+                title: 'Fechamento Operacional',
+                url: '/fechamento',
+                icon: 'fechamento'
+            },
+            {
+                title: 'UPM Linha',
+                url: '/upmlinha',
+                icon: 'upmlinha'
             }
         ];
         this.initializeApp();
@@ -725,6 +747,46 @@ let DadosSCService = class DadosSCService {
             });
         });
     }
+    getFechamento(data, total, comercial, linha, psico, pgunidades, pgvolumes, inciolinha, faltalinha, conferido, faltaconferir, tlinha, tconferencia, v762, v766, v790) {
+        var headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]();
+        headers.append('Access-Control-Allow-Origin', '*');
+        headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+        headers.append('Accept', 'application/json');
+        headers.append('content-type', 'application/json');
+        headers.append('Content-Type', 'multipart/form-data');
+        let options = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["RequestOptions"]({ headers: headers });
+        var myData = JSON.stringify({
+            //php : ta na tela      
+            data: data,
+            captacao_total: total,
+            captacao_comercial: comercial,
+            linha: linha,
+            psico: psico,
+            pedido_grande_unidades: pgunidades,
+            pedido_grande_volumes: pgvolumes,
+            inicio_linha: inciolinha,
+            falta_inicio_linha: faltalinha,
+            conferencia: conferido,
+            falta_conferencia: faltaconferir,
+            termino_linha: tlinha,
+            termino_conferencia: tconferencia,
+            rede762: v762,
+            rede766: v766,
+            rede790: v790
+        });
+        return new Promise((resolve, reject) => {
+            this.http.post('http://localhost/phpp/api-fechamento.php', myData, options)
+                .toPromise()
+                .then((response) => {
+                console.log(response);
+                resolve(response.json());
+            }).catch(error => {
+                console.error(error.status);
+                console.error(JSON.stringify(error));
+                reject(error.json());
+            });
+        });
+    }
     getLogin(usuario, senha) {
         let headers = new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({
             'Content-Type': 'application/json'
@@ -768,6 +830,36 @@ let DadosSCService = class DadosSCService {
                 .then((result) => {
                 resolve(result.json());
                 console.log("getUPM");
+            }, (error) => {
+                resolve(error.json());
+                console.log("erro");
+            });
+        });
+    }
+    getUpmhr() {
+        return new Promise((resolve, reject) => {
+            // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            let url = 'http://localhost/phpp/api-upmhora.php'; //laravel
+            this.http.get(url)
+                .toPromise()
+                .then((result) => {
+                resolve(result.json());
+                console.log("getUPMHORA");
+            }, (error) => {
+                resolve(error.json());
+                console.log("erro");
+            });
+        });
+    }
+    getEstacao() {
+        return new Promise((resolve, reject) => {
+            // let url = 'http://172.20.10.6/phpp/upm.php'; //laravel
+            let url = 'http://localhost/phpp/api-upmestacao.php'; //laravel
+            this.http.get(url)
+                .toPromise()
+                .then((result) => {
+                resolve(result.json());
+                console.log("getEstacao");
             }, (error) => {
                 resolve(error.json());
                 console.log("erro");
