@@ -43,6 +43,11 @@ export class AppComponent {
       icon: 'fechamento'
     },
     {
+      title: 'Monitor Fechamento Operacional',
+      url: '/fechamento',
+      icon: 'fechamento'
+    },
+    {
       title: 'UPM Linha',
       url: '/upmlinha',
       icon: 'upmlinha'

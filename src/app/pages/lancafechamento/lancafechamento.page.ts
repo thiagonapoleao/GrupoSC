@@ -43,6 +43,46 @@ export class LancafechamentoPage implements OnInit {
   }
 
   Fechamento() {
+
+    //configura os campos referente a linha
+    let flinha = this.linha - this.inciolinha;
+    this.faltalinha = flinha;
+    let hlinha = Math.floor(this.faltalinha / 11000);
+    let mlinha = Math.floor(((this.faltalinha / 11000) - hlinha) * 60);
+    let hlinhaatual = hlinha + 22;
+    if (hlinhaatual >= 24) {
+      let formathlinha = hlinhaatual - 24;
+      this.tlinha = String(formathlinha) + ":" + String(mlinha);
+    }
+    else {
+      this.tlinha = String(hlinhaatual) + ":" + String(mlinha);
+    }
+    // console.log("falta linha " + (this.faltalinha / 11000))
+    // console.log("hora " + hlinha);
+    // console.log("minut " + mlinha);
+    // console.log(this.tlinha);
+
+    //configura os campos referente a conferencia
+    let fconf = (this.linha + this.psico) - this.conferido;
+    this.faltaconferir = fconf;
+    let hconf = Math.floor(this.faltaconferir / 11000);
+    let mconf = Math.floor(((this.faltaconferir / 11000) - hconf) * 60);
+    let hconfatual = hconf + 22;
+    if (hconfatual >= 24) {
+      let formathconf = hconfatual - 24;
+      this.tconferencia = String(formathconf) + ":" + String(mconf);
+    }
+    else {
+      this.tconferencia = String(hconfatual) + ":" + String(mconf);
+    }
+
+    // console.log("falta conf " + (this.faltaconferir / 11000))
+    // console.log("hora " + hconf);
+    // console.log("minut " + mconf);
+    // console.log("falata conf: " + this.tconferencia);     
+
+
+
     this.service.getFechamento(this.data, this.total, this.comercial, this.linha, this.psico, this.pgunidades, this.pgvolumes, this.inciolinha, this.faltalinha, this.conferido, this.faltaconferir, this.tlinha, this.tconferencia, this.v762, this.v766, this.v790).then((result: any[]) => {
       this.fechamentos = result['fecha'];
       console.log("getFechamento");

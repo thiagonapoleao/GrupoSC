@@ -32,6 +32,10 @@ var map = {
 		"./src/app/pages/home/home.module.ts",
 		"pages-home-home-module"
 	],
+	"./pages/lancafechamento/lancafechamento.module": [
+		"./src/app/pages/lancafechamento/lancafechamento.module.ts",
+		"pages-lancafechamento-lancafechamento-module"
+	],
 	"./pages/login/login.module": [
 		"./src/app/pages/login/login.module.ts",
 		"pages-login-login-module"
@@ -533,6 +537,7 @@ var routes = [
     { path: 'conferencia', loadChildren: './pages/conferencia/conferencia.module#ConferenciaPageModule' },
     { path: 'errseparacao', loadChildren: './pages/errseparacao/errseparacao.module#ErrseparacaoPageModule' },
     { path: 'fechamento', loadChildren: './pages/fechamento/fechamento.module#FechamentoPageModule' },
+    { path: 'lancafechamento', loadChildren: './pages/lancafechamento/lancafechamento.module#LancafechamentoPageModule' },
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -616,7 +621,7 @@ var AppComponent = /** @class */ (function () {
             },
             {
                 title: 'Fechamento Operacional',
-                url: '/fechamento',
+                url: '/lancafechamento',
                 icon: 'fechamento'
             },
             {

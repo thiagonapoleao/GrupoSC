@@ -18,7 +18,7 @@ export class DadosSCService {
 
   getAlluser() {
     return new Promise((resolve, reject) => {
-      //let url = 'http://172.20.10.6/phpp/api.php'; //laravel
+      //let url = 'http://172.20.10.6/phpp/api-prodconferencia.php'; //laravel
       let url = 'http://localhost/phpp/api-prodconferencia.php'; //laravel
       this.http.get(url)
         .toPromise()
@@ -30,6 +30,48 @@ export class DadosSCService {
           });
     });
   }
+
+  getMonitorFechamentoOP(data: String) {
+    var headers = new Headers();
+    headers.append('Access-Control-Allow-Origin', '*');
+    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    headers.append('Accept', 'application/json');
+    headers.append('content-type', 'application/json');
+    headers.append('Content-Type', 'multipart/form-data');
+    let options = new RequestOptions({ headers: headers });
+
+    var myData = JSON.stringify({
+      //php : ta na tela      
+      data: data 
+    });
+    return new Promise((resolve, reject) => {
+      this.http.post('http://localhost/phpp/api-fechamento-operacional.php', myData, options)
+        .toPromise()
+        .then((response) => {
+          console.log(response);
+          resolve(response.json());
+        }).catch(error => {
+          console.error(error.status);
+          console.error(JSON.stringify(error));
+          reject(error.json());
+        });
+    });
+  }
+
+  // getFechamentoOP() {
+  //   return new Promise((resolve, reject) => {
+  //     //let url = 'http://172.20.10.6/phpp/api-fechamento-operacional.php'; //laravel
+  //     let url = 'http://localhost/phpp/api-fechamento-operacional.php'; //laravel
+  //     this.http.get(url)
+  //       .toPromise()
+  //       .then((result: any) => {
+  //         resolve(result.json());
+  //       },
+  //         (error) => {
+  //           resolve(error.json());
+  //         });
+  //   });
+  // }
 
   getFechamento(data: String, total: number, comercial: number, linha: number, psico: number, pgunidades: number, pgvolumes: number, inciolinha: number, faltalinha: number, conferido: number, faltaconferir: number, tlinha: number, tconferencia: number, v762: number, v766: number, v790: number) {
     var headers = new Headers();
@@ -93,7 +135,7 @@ export class DadosSCService {
         .toPromise()
         .then((response) => {
           console.log(response);
-          resolve(response.json());                  
+          resolve(response.json());
         }).catch(error => {
           console.error(error.status);
           console.error(JSON.stringify(error));

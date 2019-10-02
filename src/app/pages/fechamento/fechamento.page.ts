@@ -21,36 +21,44 @@ export class FechamentoPage implements OnInit {
   //replica aqui os atributos
   fechamentos: Fechamento[];
   data: any;
-  total: any;
-  comercial: any;
+  captacao_total: any;
+  captacao_comercial: any;
   linha: any;
   psico: any;
-  pgunidades: any;
-  pgvolumes: any;
-  inciolinha: any;
-  faltalinha: any;
-  conferido: any;
-  faltaconferir: any;
-  tlinha: any;
-  tconferencia: any;
-  v762: any;
-  v766: any;
-  v790: any;
+  pedido_grande_unidades: any;
+  pedido_grande_volumes: any;
+  inicio_linha: any;
+  falta_inicio_linha: any;
+  conferencia: any;
+  falta_conferencia: any;
+  termino_linha: any;
+  termino_conferencia: any;
+  rede762: any;
+  rede766: any;
+  rede790: any;
 
   constructor(public navCtrl: NavController, public service: DadosSCService, private route: ActivatedRoute) {
-
+    this.Fechamento();
   }
 
   ngOnInit() {
   }
 
   Fechamento() {
-    this.service.getFechamento(this.data, this.total, this.comercial, this.linha, this.psico, this.pgunidades, this.pgvolumes, this.inciolinha, this.faltalinha, this.conferido, this.faltaconferir, this.tlinha, this.tconferencia, this.v762, this.v766, this.v790).then((result: any[]) => {
-      this.fechamentos = result['fecha'];
-      console.log("getFechamento");
-    }).catch((error: any) => {
-      console.error(error);
-    });
+
+    if (this.data > "") {
+
+      this.service.getMonitorFechamentoOP(this.data).then((result: any[]) => {
+        this.fechamentos = result['fecha'];
+      }).catch((error: any) => {
+        console.error("error: " + error);
+      });
+
+    }
+    else {
+      console.error("error:  sem data");
+    }
+
   }
 
 }

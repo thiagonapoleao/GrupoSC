@@ -10,114 +10,86 @@
 </ion-header>
 
 <ion-content class="alto">
-  <ion-card class="pincipal">
-    <ion-item class="top">
-      <ion-label style="text-align: center; font-size: 16px">Fechamento Operacional</ion-label>
-    </ion-item>
+  <ion-card>
+    <p>
+      <ion-card-subtitle style="text-align:center; color: aliceblue; font-size: 16px">Fechamento Operacional
+      </ion-card-subtitle>
+    </p>
+    <P>
+      <ion-item class="top">
+        <ion-label style="font-size: 14px">Data do Fechamento: </ion-label>
+        <ion-input type="date" [(ngModel)]=data (click)="Fechamento()"></ion-input>
+      </ion-item>
+    </P>
   </ion-card>
 </ion-content>
 
 <ion-content class="baixo">
-  <ion-card class="dados">
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Data do Fechamento: </ion-label>
-        <ion-input type="date" [(ngModel)]=data></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Captação Total: </ion-label>
-        <ion-input type="number" [(ngModel)]=total></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Captação Comercial: </ion-label>
-        <ion-input type="number" [(ngModel)]=comercial></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Captação Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=linha></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Captação Psico: </ion-label>
-        <ion-input type="number" [(ngModel)]=psico></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Pedido G Unidades: </ion-label>
-        <ion-input type="number" [(ngModel)]=pgunidades></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Pedido G Volumes: </ion-label>
-        <ion-input type="number" [(ngModel)]=pgvolumes></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Entrada Incio de Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=inciolinha></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Falta Incio de Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=faltalinha></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Unidades Conferidas: </ion-label>
-        <ion-input type="number" [(ngModel)]=conferido></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Falta Confeir: </ion-label>
-        <ion-input type="number" [(ngModel)]=faltaconferir></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Prev. Termino Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=tlinha></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Prev. Termino Conferência: </ion-label>
-        <ion-input type="number" [(ngModel)]=tconferencia></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Volumes Rota 762: </ion-label>
-        <ion-input type="number" [(ngModel)]=v762></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Volumes Rota 766: </ion-label>
-        <ion-input type="number" [(ngModel)]=v766></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Volumes Rota 790: </ion-label>
-        <ion-input type="number" [(ngModel)]=v790></ion-input>
-      </ion-item>
-    </P>
-    <p></p>
-  </ion-card>
- 
-    <ion-button class="ion-margin-top" (click)="Fechamento()" color="light" expand="block">Lançar Dados</ion-button>
-  <p></p>
+  <div class="pincipal">
+
+    <ion-card>
+      <ion-list *ngFor="let fecha of fechamentos">
+        <ion-item>
+          <ion-label>Captação Total: </ion-label>
+          <ion-card-content>{{fecha.captacao_total  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Captação Comercial: </ion-label>
+          <ion-card-content>{{fecha.captacao_comercial  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Venda Linha: </ion-label>
+          <ion-card-content>{{fecha.linha  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Venda Psico: </ion-label>
+          <ion-card-content>{{fecha.psico  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pedido Grande - Unidades: </ion-label>
+          <ion-card-content>{{fecha.pedido_grande_unidades  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Pedido Grande - Volumes: </ion-label>
+          <ion-card-content>{{fecha.pedido_grande_volumes  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Inicio de Linha: </ion-label>
+          <ion-card-content>{{fecha.inicio_linha  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Falta Inicio de Linha: </ion-label>
+          <ion-card-content>{{fecha.falta_inicio_linha  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Conferência: </ion-label>
+          <ion-card-content>{{fecha.conferencia  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Falta Conferir: </ion-label>
+          <ion-card-content>{{fecha.falta_conferencia  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Prev. Termino - Linha: </ion-label>
+          <ion-card-content>{{fecha.termino_linha}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Prev. Termino - Conferencia: </ion-label>
+          <ion-card-content>{{fecha.termino_conferencia}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Volumes Rota 762: </ion-label>
+          <ion-card-content>{{fecha.rede762  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Volumes Rota 766: </ion-label>
+          <ion-card-content>{{fecha.rede766  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+        <ion-item>
+          <ion-label>Volumes Rota 790: </ion-label>
+          <ion-card-content>{{fecha.rede790  | number : '1.0-0'}}</ion-card-content>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+  </div>
 </ion-content>

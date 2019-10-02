@@ -66,37 +66,13 @@
         <ion-label style="font-size: 14px">Entrada Incio de Linha: </ion-label>
         <ion-input type="number" [(ngModel)]=inciolinha></ion-input>
       </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Falta Incio de Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=faltalinha></ion-input>
-      </ion-item>
-    </P>
+    </P>    
     <P>
       <ion-item class="top">
         <ion-label style="font-size: 14px">Unidades Conferidas: </ion-label>
         <ion-input type="number" [(ngModel)]=conferido></ion-input>
       </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Falta Confeir: </ion-label>
-        <ion-input type="number" [(ngModel)]=faltaconferir></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Prev. Termino Linha: </ion-label>
-        <ion-input type="number" [(ngModel)]=tlinha></ion-input>
-      </ion-item>
-    </P>
-    <P>
-      <ion-item class="top">
-        <ion-label style="font-size: 14px">Prev. Termino Conferência: </ion-label>
-        <ion-input type="number" [(ngModel)]=tconferencia></ion-input>
-      </ion-item>
-    </P>
+    </P>   
     <P>
       <ion-item class="top">
         <ion-label style="font-size: 14px">Volumes Rota 762: </ion-label>
@@ -117,7 +93,8 @@
     </P>
     <p></p>
   </ion-card>
- 
-    <ion-button class="ion-margin-top" (click)="Fechamento()" color="light" expand="block">Lançar Dados</ion-button>
+
+  <ion-button class="ion-margin-top" (click)="Fechamento()" color="light" expand="block" [routerLink]="['/fechamento']">
+    Lançar Dados</ion-button>
   <p></p>
 </ion-content>
