@@ -1,0 +1,15 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.css");
+
+
+.progress-bar{
+  height: 50px;
+  padding: 5px;
+  background-color: #ccc;
+  display: flex;
+}
+
+.progress-bar::before{
+  content: "";
+  width: 30%;
+  background-color: red;
+}
